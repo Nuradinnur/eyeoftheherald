@@ -1,8 +1,6 @@
 package org.nuradinnur.eyeoftheherald.domain.datadragon.clean.rune;
 
-import lombok.AccessLevel;
 import lombok.Data;
-import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

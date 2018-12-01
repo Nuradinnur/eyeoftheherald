@@ -9,7 +9,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.HttpStatusCodeException;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
@@ -17,13 +16,12 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 import java.util.Date;
 
 @ControllerAdvice
-@RestController
-public class GameDataControllerExceptionHandler extends ResponseEntityExceptionHandler {
+public class DataCollectionControllerExceptionHandler extends ResponseEntityExceptionHandler {
 
     private final ShutdownHook shutdownHandler;
     private final Logger logger;
 
-    public GameDataControllerExceptionHandler(ShutdownHook shutdownHandler) {
+    public DataCollectionControllerExceptionHandler(ShutdownHook shutdownHandler) {
         this.shutdownHandler = shutdownHandler;
         this.logger = LoggerFactory.getLogger(this.getClass());
     }

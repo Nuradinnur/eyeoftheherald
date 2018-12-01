@@ -1,8 +1,6 @@
 package org.nuradinnur.eyeoftheherald.domain.datadragon.clean;
 
-import lombok.AccessLevel;
 import lombok.Data;
-import lombok.Setter;
 import lombok.experimental.NonFinal;
 
 import javax.persistence.*;
@@ -15,7 +13,8 @@ public class SpellVars {
     @NonFinal
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
+    String toolTipLocation;
     String scalingVariable;
     @ElementCollection
-    List<Double> scalingValues;
+    List<Double> scalingCoefficients;
 }

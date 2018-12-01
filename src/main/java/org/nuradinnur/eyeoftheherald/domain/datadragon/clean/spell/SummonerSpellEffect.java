@@ -1,8 +1,6 @@
 package org.nuradinnur.eyeoftheherald.domain.datadragon.clean.spell;
 
-import lombok.AccessLevel;
 import lombok.Data;
-import lombok.Setter;
 import lombok.experimental.NonFinal;
 
 import javax.persistence.*;

@@ -5,7 +5,8 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.val;
 import org.nuradinnur.eyeoftheherald.constant.DataDragonFiles;
 import org.nuradinnur.eyeoftheherald.constant.Locales;
-import org.nuradinnur.eyeoftheherald.domain.datadragon.dto.champion.ChampionsDTO;
+import org.nuradinnur.eyeoftheherald.domain.datadragon.clean.champion.Champion;
+import org.nuradinnur.eyeoftheherald.domain.datadragon.dto.champion.ChampionDTO;
 import org.nuradinnur.eyeoftheherald.domain.datadragon.dto.icon.ProfileIconsDTO;
 import org.nuradinnur.eyeoftheherald.domain.datadragon.dto.item.ItemsDTO;
 import org.nuradinnur.eyeoftheherald.domain.datadragon.dto.rune.RunePathDTO;
@@ -20,6 +21,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -31,10 +33,9 @@ public class DataDragonService {
 
     private final ObjectMapper objectMapper;
     private final GameVersioningService gameVersioningService;
+    private final ChampionMapper championMapper;
 
-    private ChampionMapper championMapper;
-
-    private Map<Locales, ChampionsDTO> champions;
+    private Map<Locales, List<Champion>> champions;
     private Map<Locales, ItemsDTO> items;
     private Map<Locales, RunesDTO> runes;
     private Map<Locales, ProfileIconsDTO> summonerIcons;
@@ -57,7 +58,7 @@ public class DataDragonService {
         checkForUpdates();
     }
 
-    public ChampionsDTO getChampions(Locales locale) {
+    public List<Champion> getChampions(Locales locale) {
         return champions.get(locale);
     }
 
@@ -82,7 +83,6 @@ public class DataDragonService {
         try {
             for (val locale : Locales.values()) {
                 populateData(locale);
-                logger.info("Loaded data dragon files for locale {}", locale.getIdentifier());
             }
         } catch (IOException e) {
             logger.error(e.toString());
@@ -90,9 +90,6 @@ public class DataDragonService {
     }
 
     private synchronized void populateData(Locales locale) throws IOException {
-        val championsDto = getDataAsObject(locale,
-                DataDragonFiles.CHAMPIONS,
-                ChampionsDTO.class);
         val itemsDto = getDataAsObject(locale,
                 DataDragonFiles.ITEMS,
                 ItemsDTO.class);
@@ -108,27 +105,33 @@ public class DataDragonService {
                 DataDragonFiles.SUMMONER_ICONS,
                 ProfileIconsDTO.class);
 
-        champions.clear();
-        items.clear();
-        runes.clear();
-        summonerSpells.clear();
-        summonerIcons.clear();
-
-        champions.put(locale, championsDto);
+        champions.put(locale, getChampionData(locale));
         items.put(locale, itemsDto);
         runes.put(locale, runesDto);
         summonerSpells.put(locale, summonerSpellsDto);
         summonerIcons.put(locale, summonerIconsDto);
+
+        logger.info("Loaded data dragon files for {} ({})", locale.name(), locale.getIdentifier());
+    }
+
+    private List<Champion> getChampionData(Locales locale) throws IOException {
+        val championDataFile = gameVersioningService.getDataDragonDefinitionPath(locale, DataDragonFiles.CHAMPIONS).toFile();
+        val data = objectMapper.readTree(championDataFile).path("data");
+        val parameterizedTypeObjectMapper = objectMapper.readerFor(new TypeReference<ChampionDTO>() {});
+        val result = new ArrayList<ChampionDTO>();
+        for (val node : data) {
+            result.add(parameterizedTypeObjectMapper.readValue(node));
+        }
+        return championMapper.mapAll(result);
     }
 
     private <T> T getDataAsObject(Locales locale, DataDragonFiles dataDragonFile, Class<T> type) throws IOException {
-        val jsonFilePath = gameVersioningService.getDataDragonDefinitionPath(locale, dataDragonFile).toFile();
-        return objectMapper.readValue(jsonFilePath, type);
+        val dataDragonFilePath = gameVersioningService.getDataDragonDefinitionPath(locale, dataDragonFile).toFile();
+        return objectMapper.readValue(dataDragonFilePath, type);
     }
 
     private <T> List<T> getDataAsList(Locales locale, DataDragonFiles dataDragonFile, Class<T> type) throws IOException {
-        val jsonFilePath = gameVersioningService.getDataDragonDefinitionPath(locale, dataDragonFile).toFile();
-        return objectMapper.readValue(jsonFilePath, new TypeReference<List<T>>() {
-        });
+        val dataDragonFilePath = gameVersioningService.getDataDragonDefinitionPath(locale, dataDragonFile).toFile();
+        return objectMapper.readValue(dataDragonFilePath, new TypeReference<List<T>>() {});
     }
 }

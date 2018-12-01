@@ -1,9 +1,7 @@
 package org.nuradinnur.eyeoftheherald.domain.datadragon.clean.champion;
 
-import lombok.AccessLevel;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
-import lombok.Setter;
-import lombok.experimental.NonFinal;
 import org.nuradinnur.eyeoftheherald.domain.datadragon.clean.GameSprite;
 
 import javax.persistence.*;
@@ -12,8 +10,8 @@ import javax.persistence.*;
 @Entity
 public class ChampionPassive {
     @Id
-    @NonFinal
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonIgnore
     Long id;
     String name;
     String description;

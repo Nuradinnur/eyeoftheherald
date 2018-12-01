@@ -1,8 +1,7 @@
 package org.nuradinnur.eyeoftheherald.domain.datadragon.clean.champion;
 
-import lombok.AccessLevel;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
-import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -11,7 +10,9 @@ import javax.persistence.Id;
 @Entity
 public class ChampionSkin {
     @Id
+    @JsonIgnore
     Integer id;
     String name;
+    Integer skinIndex;
     Boolean hasChromas;
 }

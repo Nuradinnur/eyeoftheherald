@@ -1,8 +1,7 @@
 package org.nuradinnur.eyeoftheherald.domain.datadragon.clean;
 
-import lombok.AccessLevel;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
-import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,6 +13,7 @@ import javax.persistence.Id;
 public class GameSprite {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonIgnore
     Long id;
     String suggestedFileName;
     String spriteSheetFileName;

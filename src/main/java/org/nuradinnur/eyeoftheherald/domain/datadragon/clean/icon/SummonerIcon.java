@@ -1,8 +1,6 @@
 package org.nuradinnur.eyeoftheherald.domain.datadragon.clean.icon;
 
-import lombok.AccessLevel;
 import lombok.Data;
-import lombok.Setter;
 import org.nuradinnur.eyeoftheherald.domain.datadragon.clean.GameSprite;
 
 import javax.persistence.CascadeType;

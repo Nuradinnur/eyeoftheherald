@@ -1,7 +1,7 @@
 package org.nuradinnur.eyeoftheherald.controller;
 
 import org.nuradinnur.eyeoftheherald.constant.Locales;
-import org.nuradinnur.eyeoftheherald.domain.datadragon.dto.champion.ChampionsDTO;
+import org.nuradinnur.eyeoftheherald.domain.datadragon.clean.champion.Champion;
 import org.nuradinnur.eyeoftheherald.domain.datadragon.dto.icon.ProfileIconsDTO;
 import org.nuradinnur.eyeoftheherald.domain.datadragon.dto.item.ItemsDTO;
 import org.nuradinnur.eyeoftheherald.domain.datadragon.dto.rune.RunesDTO;
@@ -9,9 +9,11 @@ import org.nuradinnur.eyeoftheherald.domain.datadragon.dto.spell.SummonerSpellsD
 import org.nuradinnur.eyeoftheherald.service.datadragon.DataDragonService;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @ResponseBody
-@RequestMapping(value = "/static/data")
+@RequestMapping(value = "/{locale}/static/data")
 public class DataDragonController {
 
     private final DataDragonService dataDragonService;
@@ -20,27 +22,27 @@ public class DataDragonController {
         this.dataDragonService = dataDragonService;
     }
 
-    @GetMapping("/{locale}/champions")
-    public ChampionsDTO getChampions(@PathVariable("locale") Locales locale) {
+    @GetMapping("/champions")
+    public List<Champion> getChampions(@PathVariable("locale") Locales locale) {
         return dataDragonService.getChampions(locale);
     }
 
-    @GetMapping("/{locale}/items")
+    @GetMapping("/items")
     public ItemsDTO getItems(@PathVariable("locale") Locales locale) {
         return dataDragonService.getItems(locale);
     }
 
-    @GetMapping("/{locale}/runes")
+    @GetMapping("/runes")
     public RunesDTO getRunes(@PathVariable("locale") Locales locale) {
         return dataDragonService.getRunes(locale);
     }
 
-    @GetMapping("/{locale}/summoner-icons")
+    @GetMapping("/summoner-icons")
     public ProfileIconsDTO getSummonerIcons(@PathVariable("locale") Locales locale) {
         return dataDragonService.getSummonerIcons(locale);
     }
 
-    @GetMapping("/{locale}/summoner-spells")
+    @GetMapping("/summoner-spells")
     public SummonerSpellsDTO summonerSpells(@PathVariable("locale") Locales locale) {
         return dataDragonService.getSummonerSpells(locale);
     }

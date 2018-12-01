@@ -1,17 +1,17 @@
 package org.nuradinnur.eyeoftheherald.domain.datadragon.clean.champion;
 
-import lombok.AccessLevel;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
-import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Data
 @Entity
-public class LevelTip {
+public class LevelTips {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonIgnore
     Long id;
     @ElementCollection
     List<String> label;

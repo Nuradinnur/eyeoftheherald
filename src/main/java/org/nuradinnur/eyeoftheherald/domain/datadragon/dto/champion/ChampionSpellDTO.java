@@ -13,7 +13,7 @@ public class ChampionSpellDTO {
     private String name;
     private String description;
     private String tooltip;
-    private LevelTipDTO leveltip;
+    private LevelTipsDTO leveltip;
     private Integer maxrank;
     private List<Double> cooldown;
     private String cooldownBurn;

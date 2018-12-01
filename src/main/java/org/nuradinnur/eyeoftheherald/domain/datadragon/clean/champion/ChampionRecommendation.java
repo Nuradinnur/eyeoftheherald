@@ -1,9 +1,8 @@
 package org.nuradinnur.eyeoftheherald.domain.datadragon.clean.champion;
 
-import lombok.AccessLevel;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
-import lombok.Setter;
-import lombok.experimental.NonFinal;
+import org.nuradinnur.eyeoftheherald.constant.Maps;
 
 import javax.persistence.*;
 import java.util.List;
@@ -12,12 +11,11 @@ import java.util.List;
 @Entity
 public class ChampionRecommendation {
     @Id
-    @NonFinal
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonIgnore
     Long id;
-    String champion;
     String title;
-    String map;
+    Maps map;
     String mode;
     String type;
     String customTag;

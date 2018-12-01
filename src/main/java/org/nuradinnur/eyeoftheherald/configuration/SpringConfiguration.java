@@ -35,8 +35,6 @@ import java.util.concurrent.Executor;
 @EnableRetry
 public class SpringConfiguration implements AsyncConfigurer, WebMvcConfigurer {
 
-    // TODO: Clean up @Beans.  Many of these do not have to be specifically constructed here (@Autowired)
-
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/static/images/**")
@@ -82,6 +80,7 @@ public class SpringConfiguration implements AsyncConfigurer, WebMvcConfigurer {
         val mapper = builder.build();
         mapper.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
         mapper.configure(SerializationFeature.INDENT_OUTPUT, true);
+
         return mapper;
     }
 

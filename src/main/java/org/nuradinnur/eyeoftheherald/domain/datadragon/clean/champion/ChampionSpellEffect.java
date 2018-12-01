@@ -1,8 +1,7 @@
 package org.nuradinnur.eyeoftheherald.domain.datadragon.clean.champion;
 
-import lombok.AccessLevel;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
-import lombok.Setter;
 import lombok.experimental.NonFinal;
 
 import javax.persistence.*;
@@ -14,6 +13,7 @@ public class ChampionSpellEffect {
     @Id
     @NonFinal
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonIgnore
     Long id;
     @ElementCollection
     List<Double> effects;

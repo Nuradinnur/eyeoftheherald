@@ -1,8 +1,6 @@
 package org.nuradinnur.eyeoftheherald.domain.datadragon.clean.champion;
 
-import lombok.AccessLevel;
 import lombok.Data;
-import lombok.Setter;
 import org.nuradinnur.eyeoftheherald.domain.datadragon.clean.GameSprite;
 
 import javax.persistence.*;
@@ -10,7 +8,7 @@ import java.util.List;
 
 @Data
 @Entity
-public class    Champion {
+public class Champion {
     @Id
     Integer id;
     String unformattedName;
@@ -30,7 +28,7 @@ public class    Champion {
     @OneToOne(cascade = CascadeType.ALL)
     ChampionRating rating;
     @OneToOne(cascade = CascadeType.ALL)
-    ChampionStats statistics;
+    ChampionStats stats;
     @OneToOne(cascade = CascadeType.ALL)
     ChampionPassive passive;
     @OneToMany(cascade = CascadeType.ALL)

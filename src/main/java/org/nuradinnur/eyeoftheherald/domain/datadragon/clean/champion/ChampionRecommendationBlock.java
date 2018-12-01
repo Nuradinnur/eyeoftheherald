@@ -1,9 +1,7 @@
 package org.nuradinnur.eyeoftheherald.domain.datadragon.clean.champion;
 
-import lombok.AccessLevel;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
-import lombok.Setter;
-import lombok.experimental.NonFinal;
 
 import javax.persistence.*;
 import java.util.List;
@@ -12,21 +10,21 @@ import java.util.List;
 @Entity
 public class ChampionRecommendationBlock {
     @Id
-    @NonFinal
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonIgnore
     Long id;
-    private String type;
-    private Boolean recMath;
-    private Boolean recSteps;
-    private Integer minSummonerLevel;
-    private Integer maxSummonerLevel;
-    private String showIfSummonerSpell;
-    private String hideIfSummonerSpell;
-    private String appendAfterSection;
+    String type;
+    Boolean recMath;
+    Boolean recSteps;
+    Integer minSummonerLevel;
+    Integer maxSummonerLevel;
+    String showIfSummonerSpell;
+    String hideIfSummonerSpell;
+    String appendAfterSection;
     @ElementCollection
-    private List<String> visibleWithAllOf;
+    List<String> visibleWithAllOf;
     @ElementCollection
-    private List<String> hiddenWithAnyOf;
+    List<String> hiddenWithAnyOf;
     @OneToMany(cascade = CascadeType.ALL)
-    private List<ChampionRecommendationBlockItem> items;
+    List<ChampionRecommendationBlockItem> items;
 }

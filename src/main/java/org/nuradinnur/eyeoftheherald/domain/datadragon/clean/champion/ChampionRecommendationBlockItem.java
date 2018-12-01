@@ -1,9 +1,7 @@
 package org.nuradinnur.eyeoftheherald.domain.datadragon.clean.champion;
 
-import lombok.AccessLevel;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
-import lombok.Setter;
-import lombok.experimental.NonFinal;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,8 +12,8 @@ import javax.persistence.Id;
 @Entity
 public class ChampionRecommendationBlockItem {
     @Id
-    @NonFinal
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonIgnore
     Long id;
     String itemId;
     Integer quantity;

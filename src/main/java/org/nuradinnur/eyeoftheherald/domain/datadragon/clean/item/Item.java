@@ -1,8 +1,6 @@
 package org.nuradinnur.eyeoftheherald.domain.datadragon.clean.item;
 
-import lombok.AccessLevel;
 import lombok.Data;
-import lombok.Setter;
 import org.nuradinnur.eyeoftheherald.constant.ItemStats;
 import org.nuradinnur.eyeoftheherald.domain.datadragon.clean.GameSprite;
 
