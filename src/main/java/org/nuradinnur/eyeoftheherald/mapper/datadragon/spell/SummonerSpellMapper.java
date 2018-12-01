@@ -1,4 +1,4 @@
-package org.nuradinnur.eyeoftheherald.mapper.datadragon.summonerspell;
+package org.nuradinnur.eyeoftheherald.mapper.datadragon.spell;
 
 import lombok.val;
 import org.nuradinnur.eyeoftheherald.domain.datadragon.clean.spell.SummonerSpell;

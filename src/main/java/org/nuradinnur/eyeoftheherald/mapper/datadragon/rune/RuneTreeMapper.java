@@ -1,4 +1,4 @@
-package org.nuradinnur.eyeoftheherald.mapper.datadragon.runetree;
+package org.nuradinnur.eyeoftheherald.mapper.datadragon.rune;
 
 import lombok.val;
 import org.nuradinnur.eyeoftheherald.domain.datadragon.clean.rune.Rune;
