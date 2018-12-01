@@ -27,7 +27,7 @@ Currently, there is a lot of work to be done, and many things are broken, but ex
 #### Upcoming features:
 * Persistence
     * Immutability in entity objects (Objects represent game state and should *not* change)
-    * DTO -> persistent entity mappers
+    * DTO-to-persistent-entity converters (mappers)
     * Caching of frequently pulled data
     * Spring repositories
     * Spring queries to provide insightful statistics, i.e.: *Morgana, in winning matches, averages a KDA of 5.7 / 2.9 / 12.6*

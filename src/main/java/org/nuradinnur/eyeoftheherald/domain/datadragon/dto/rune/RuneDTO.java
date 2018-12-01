@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public
-class ChampionDTO {
+class RuneDTO {
     private Integer id;
     private String key;
     private String icon;
