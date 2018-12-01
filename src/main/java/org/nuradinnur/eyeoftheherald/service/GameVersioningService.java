@@ -79,7 +79,6 @@ public class GameVersioningService {
     private void checkForUpdates() throws IOException {
         logger.info("Checking for Data Dragon definition updates...");
         val latestGameVersion = getLatestGameVersion();
-        // TODO: If statements are wrong...
         if (!(currentGameVersion == null) && currentGameVersion.equals(latestGameVersion)) {
             logger.info("Data Dragon definitions are up to date.");
         }
