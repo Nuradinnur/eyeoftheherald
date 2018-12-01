@@ -7,14 +7,17 @@ import org.nuradinnur.eyeoftheherald.constant.Locales;
 import org.nuradinnur.eyeoftheherald.domain.datadragon.clean.champion.Champion;
 import org.nuradinnur.eyeoftheherald.domain.datadragon.clean.item.Item;
 import org.nuradinnur.eyeoftheherald.domain.datadragon.clean.rune.RuneTree;
+import org.nuradinnur.eyeoftheherald.domain.datadragon.clean.spell.SummonerSpell;
 import org.nuradinnur.eyeoftheherald.domain.datadragon.dto.champion.ChampionDTO;
 import org.nuradinnur.eyeoftheherald.domain.datadragon.dto.icon.ProfileIconsDTO;
 import org.nuradinnur.eyeoftheherald.domain.datadragon.dto.item.ItemDTO;
 import org.nuradinnur.eyeoftheherald.domain.datadragon.dto.rune.RuneTreeDTO;
+import org.nuradinnur.eyeoftheherald.domain.datadragon.dto.spell.SummonerSpellDTO;
 import org.nuradinnur.eyeoftheherald.domain.datadragon.dto.spell.SummonerSpellsDTO;
 import org.nuradinnur.eyeoftheherald.mapper.datadragon.champion.ChampionMapper;
 import org.nuradinnur.eyeoftheherald.mapper.datadragon.item.ItemMapper;
 import org.nuradinnur.eyeoftheherald.mapper.datadragon.runetree.RuneTreeMapper;
+import org.nuradinnur.eyeoftheherald.mapper.datadragon.summonerspell.SummonerSpellMapper;
 import org.nuradinnur.eyeoftheherald.service.GameVersioningService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,10 +26,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 public class DataDragonService {
@@ -38,14 +38,16 @@ public class DataDragonService {
     private final ChampionMapper championMapper;
     private final ItemMapper itemMapper;
     private final RuneTreeMapper runeTreeMapper;
+    private final SummonerSpellMapper summonerSpellMapper;
 
     private Map<Locales, List<Champion>> champions;
     private Map<Locales, List<Item>> items;
     private Map<Locales, List<RuneTree>> runeTrees;
     private Map<Locales, ProfileIconsDTO> summonerIcons;
-    private Map<Locales, SummonerSpellsDTO> summonerSpells;
+    private Map<Locales, List<SummonerSpell>> summonerSpells;
 
-    public DataDragonService(ObjectMapper objectMapper, GameVersioningService gameVersioningService, ChampionMapper championMapper, ItemMapper itemMapper, RuneTreeMapper runeTreeMapper) {
+    public DataDragonService(ObjectMapper objectMapper, GameVersioningService gameVersioningService, ChampionMapper championMapper, ItemMapper itemMapper, RuneTreeMapper runeTreeMapper, SummonerSpellMapper summonerSpellMapper) {
+        this.summonerSpellMapper = summonerSpellMapper;
         this.logger = LoggerFactory.getLogger(this.getClass());
         this.gameVersioningService = gameVersioningService;
         this.objectMapper = objectMapper;
@@ -80,7 +82,7 @@ public class DataDragonService {
         return summonerIcons.get(locale);
     }
 
-    public SummonerSpellsDTO getSummonerSpells(Locales locale) {
+    public List<SummonerSpell> getSummonerSpells(Locales locale) {
         return summonerSpells.get(locale);
     }
 
@@ -106,11 +108,12 @@ public class DataDragonService {
         val championData = getChampionData(locale);
         val itemData = getItemData(locale);
         val runesData = getRuneTreeData(locale);
+        val summonerSpellData = getSummonerSpellData(locale);
 
         champions.put(locale, championData);
         items.put(locale, itemData);
         runeTrees.put(locale, runesData);
-        summonerSpells.put(locale, summonerSpellsDto);
+        summonerSpells.put(locale, summonerSpellData);
         summonerIcons.put(locale, summonerIconsDto);
 
         logger.info("Loaded data dragon files for {} ({})", locale.name(), locale.getIdentifier());
@@ -157,6 +160,20 @@ public class DataDragonService {
         }
         return runeTreeMapper.mapAll(result);
     }
+
+    private List<SummonerSpell> getSummonerSpellData(Locales locale) throws IOException {
+        val result = new ArrayList<SummonerSpellDTO>();
+        val file = gameVersioningService.getDataDragonDefinitionPath(locale, DataDragonFiles.SUMMONER_SPELLS).toFile();
+        val data = objectMapper.readTree(file).path("data");
+        val classType = objectMapper.getTypeFactory().constructType(SummonerSpellDTO.class);
+        val typedObjectReader = objectMapper.readerFor(classType);
+        for (val node : data) {
+            result.add(typedObjectReader.readValue(node));
+        }
+        result.sort(Comparator.comparingInt(SummonerSpellDTO::getKey));
+        return summonerSpellMapper.mapAll(result);
+    }
+
 
     private <T> T getDataAsObject(Locales locale, DataDragonFiles dataDragonFile, Class<T> type) throws IOException {
         val dataDragonFilePath = gameVersioningService.getDataDragonDefinitionPath(locale, dataDragonFile).toFile();

@@ -4,8 +4,8 @@ import org.nuradinnur.eyeoftheherald.constant.Locales;
 import org.nuradinnur.eyeoftheherald.domain.datadragon.clean.champion.Champion;
 import org.nuradinnur.eyeoftheherald.domain.datadragon.clean.item.Item;
 import org.nuradinnur.eyeoftheherald.domain.datadragon.clean.rune.RuneTree;
+import org.nuradinnur.eyeoftheherald.domain.datadragon.clean.spell.SummonerSpell;
 import org.nuradinnur.eyeoftheherald.domain.datadragon.dto.icon.ProfileIconsDTO;
-import org.nuradinnur.eyeoftheherald.domain.datadragon.dto.spell.SummonerSpellsDTO;
 import org.nuradinnur.eyeoftheherald.service.datadragon.DataDragonService;
 import org.springframework.web.bind.annotation.*;
 
@@ -43,7 +43,7 @@ public class DataDragonController {
     }
 
     @GetMapping("/summoner-spells")
-    public SummonerSpellsDTO summonerSpells(@PathVariable("locale") Locales locale) {
+    public List<SummonerSpell> summonerSpells(@PathVariable("locale") Locales locale) {
         return dataDragonService.getSummonerSpells(locale);
     }
 }

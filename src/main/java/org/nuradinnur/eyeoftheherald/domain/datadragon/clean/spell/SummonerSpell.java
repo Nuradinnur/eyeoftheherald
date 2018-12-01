@@ -12,8 +12,8 @@ import java.util.List;
 public class SummonerSpell {
     @Id
     Integer spellId;
-    String id;
-    String name;
+    String unformattedName;
+    String formattedName;
     String description;
     String toolTip;
     @ElementCollection
@@ -21,15 +21,18 @@ public class SummonerSpell {
     Integer summonerLevel;
     Integer maxRank;
     Integer maxCharges;
-    Integer spellRange;
-    Integer cooldown;
-    Integer cost;
+    @ElementCollection
+    List<Integer> spellRangeByRank;
+    @ElementCollection
+    List<Integer> cooldownByRank;
+    @ElementCollection
+    List<Integer> costByRank;
     String costType;
     String resource;
     @OneToMany(cascade = CascadeType.ALL)
     List<SummonerSpellEffect> effects;
-    @OneToOne(cascade = CascadeType.ALL)
-    SpellVars spellVars;
+    @OneToMany(cascade = CascadeType.ALL)
+    List<SpellVars> spellVars;
     @OneToOne(cascade = CascadeType.ALL)
     GameSprite sprite;
 }
