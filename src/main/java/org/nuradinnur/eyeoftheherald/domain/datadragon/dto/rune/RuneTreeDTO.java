@@ -5,7 +5,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class RunePathDTO {
+public class RuneTreeDTO {
     private Integer id;
     private String key;
     private String icon;
