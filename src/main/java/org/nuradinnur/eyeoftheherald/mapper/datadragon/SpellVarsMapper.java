@@ -1,4 +1,4 @@
-package org.nuradinnur.eyeoftheherald.mapper;
+package org.nuradinnur.eyeoftheherald.mapper.datadragon;
 
 import lombok.val;
 import org.nuradinnur.eyeoftheherald.domain.datadragon.clean.SpellVars;

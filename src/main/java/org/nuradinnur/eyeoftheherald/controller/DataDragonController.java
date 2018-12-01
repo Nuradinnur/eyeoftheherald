@@ -2,8 +2,8 @@ package org.nuradinnur.eyeoftheherald.controller;
 
 import org.nuradinnur.eyeoftheherald.constant.Locales;
 import org.nuradinnur.eyeoftheherald.domain.datadragon.clean.champion.Champion;
+import org.nuradinnur.eyeoftheherald.domain.datadragon.clean.item.Item;
 import org.nuradinnur.eyeoftheherald.domain.datadragon.dto.icon.ProfileIconsDTO;
-import org.nuradinnur.eyeoftheherald.domain.datadragon.dto.item.ItemsDTO;
 import org.nuradinnur.eyeoftheherald.domain.datadragon.dto.rune.RunesDTO;
 import org.nuradinnur.eyeoftheherald.domain.datadragon.dto.spell.SummonerSpellsDTO;
 import org.nuradinnur.eyeoftheherald.service.datadragon.DataDragonService;
@@ -28,7 +28,7 @@ public class DataDragonController {
     }
 
     @GetMapping("/items")
-    public ItemsDTO getItems(@PathVariable("locale") Locales locale) {
+    public List<Item> getItems(@PathVariable("locale") Locales locale) {
         return dataDragonService.getItems(locale);
     }
 

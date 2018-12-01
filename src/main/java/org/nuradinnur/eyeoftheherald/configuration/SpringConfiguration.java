@@ -1,5 +1,6 @@
 package org.nuradinnur.eyeoftheherald.configuration;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -79,8 +80,8 @@ public class SpringConfiguration implements AsyncConfigurer, WebMvcConfigurer {
         builder.handlerInstantiator(instantiator);
         val mapper = builder.build();
         mapper.configure(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY, true);
-        mapper.configure(SerializationFeature.INDENT_OUTPUT, true);
-
+        mapper.configure(SerializationFeature.INDENT_OUTPUT, false);
+        mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
         return mapper;
     }
 
