@@ -1,5 +1,8 @@
 package org.nuradinnur.eyeoftheherald.constant;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public enum ItemStats {
     FLAT_ARMOR("FlatArmorMod"),
     FLAT_ATTACK_SPEED("FlatAttackSpeedMod"),
@@ -35,9 +38,20 @@ public enum ItemStats {
     PERCENT_MAGIC_RESIST("PercentSpellBlockMod"),
     PERCENT_SPELL_VAMP("PercentSpellVampMod");
 
+    private static final Map<String, ItemStats> lookup = new HashMap<>();
     private String key;
+
+    static {
+        for (ItemStats stats : ItemStats.values()) {
+            lookup.put(stats.key, stats);
+        }
+    }
 
     ItemStats(String key) {
         this.key = key;
+    }
+
+    public static ItemStats getByValue(String value) {
+        return lookup.get(value);
     }
 }

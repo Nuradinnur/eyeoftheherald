@@ -1,9 +1,11 @@
-package org.nuradinnur.eyeoftheherald.mapper;
+package org.nuradinnur.eyeoftheherald.mapper.datadragon.champion;
 
 import lombok.val;
 import org.nuradinnur.eyeoftheherald.constant.Maps;
 import org.nuradinnur.eyeoftheherald.domain.datadragon.clean.champion.*;
 import org.nuradinnur.eyeoftheherald.domain.datadragon.dto.champion.*;
+import org.nuradinnur.eyeoftheherald.mapper.datadragon.GameSpriteMapper;
+import org.nuradinnur.eyeoftheherald.mapper.datadragon.SpellVarsMapper;
 import org.springframework.stereotype.Component;
 
 import java.util.Collections;

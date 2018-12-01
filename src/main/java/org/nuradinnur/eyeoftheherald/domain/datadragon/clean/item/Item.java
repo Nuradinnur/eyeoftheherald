@@ -11,7 +11,6 @@ import java.util.Map;
 @Data
 @Entity
 public class Item {
-    // TODO: Convert data dragon object fields to using enums instead of integers
     @Id
     Long id;
     String name;
