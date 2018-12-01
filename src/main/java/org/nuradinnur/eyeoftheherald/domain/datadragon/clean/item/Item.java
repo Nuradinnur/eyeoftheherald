@@ -12,7 +12,7 @@ import java.util.Map;
 @Entity
 public class Item {
     @Id
-    Long id;
+    Integer id;
     String name;
     @ElementCollection
     List<String> colloquialisms;
