@@ -1,8 +1,7 @@
 package org.nuradinnur.eyeoftheherald.domain.datadragon.clean.champion;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
-import org.nuradinnur.eyeoftheherald.domain.datadragon.clean.GameSprite;
+import org.nuradinnur.eyeoftheherald.domain.datadragon.clean.GameImage;
 
 import javax.persistence.*;
 
@@ -10,11 +9,9 @@ import javax.persistence.*;
 @Entity
 public class ChampionPassive {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @JsonIgnore
-    Long id;
+    @Column(length = 100)
     String name;
     String description;
     @OneToOne(cascade = CascadeType.ALL)
-    GameSprite sprite;
+    GameImage image;
 }

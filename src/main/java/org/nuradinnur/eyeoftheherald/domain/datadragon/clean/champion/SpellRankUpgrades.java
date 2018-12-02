@@ -3,16 +3,19 @@ package org.nuradinnur.eyeoftheherald.domain.datadragon.clean.champion;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.List;
 
 @Data
 @Entity
-public class LevelTips {
+public class SpellRankUpgrades {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(length = 100)
     @JsonIgnore
-    Long id;
+    String forSpell;
     @ElementCollection
     List<String> label;
     @ElementCollection

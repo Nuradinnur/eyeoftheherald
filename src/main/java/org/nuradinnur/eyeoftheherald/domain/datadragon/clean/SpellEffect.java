@@ -1,17 +1,17 @@
-package org.nuradinnur.eyeoftheherald.domain.datadragon.clean.spell;
+package org.nuradinnur.eyeoftheherald.domain.datadragon.clean;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
-import lombok.experimental.NonFinal;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Data
 @Entity
-public class SummonerSpellEffect {
+public class SpellEffect {
     @Id
-    @NonFinal
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonIgnore
     Long id;
     @ElementCollection
     List<Double> effects;

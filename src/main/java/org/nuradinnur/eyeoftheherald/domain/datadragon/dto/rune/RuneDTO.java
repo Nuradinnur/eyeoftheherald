@@ -3,8 +3,7 @@ package org.nuradinnur.eyeoftheherald.domain.datadragon.dto.rune;
 import lombok.Data;
 
 @Data
-public
-class RuneDTO {
+public class RuneDTO {
     private Integer id;
     private String key;
     private String icon;

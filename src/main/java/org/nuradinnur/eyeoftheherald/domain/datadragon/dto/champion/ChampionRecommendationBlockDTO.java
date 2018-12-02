@@ -5,8 +5,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public
-class ChampionRecommendationBlockDTO {
+public class ChampionRecommendationBlockDTO {
     private String type;
     private Boolean recMath;
     private Boolean recSteps;

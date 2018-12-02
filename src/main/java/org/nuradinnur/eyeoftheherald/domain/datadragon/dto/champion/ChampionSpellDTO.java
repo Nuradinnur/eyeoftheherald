@@ -8,7 +8,6 @@ import java.util.List;
 
 @Data
 public class ChampionSpellDTO {
-
     private String id;
     private String name;
     private String description;

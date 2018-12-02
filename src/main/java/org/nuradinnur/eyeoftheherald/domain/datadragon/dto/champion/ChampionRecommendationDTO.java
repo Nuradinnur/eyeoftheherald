@@ -5,8 +5,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public
-class ChampionRecommendationDTO {
+public class ChampionRecommendationDTO {
     private String champion;
     private String title;
     private String map;

@@ -1,7 +1,8 @@
 package org.nuradinnur.eyeoftheherald.domain.datadragon.clean.spell;
 
 import lombok.Data;
-import org.nuradinnur.eyeoftheherald.domain.datadragon.clean.GameSprite;
+import org.nuradinnur.eyeoftheherald.domain.datadragon.clean.GameImage;
+import org.nuradinnur.eyeoftheherald.domain.datadragon.clean.SpellEffect;
 import org.nuradinnur.eyeoftheherald.domain.datadragon.clean.SpellVars;
 
 import javax.persistence.*;
@@ -11,7 +12,7 @@ import java.util.List;
 @Entity
 public class SummonerSpell {
     @Id
-    Integer spellId;
+    Integer id;
     String unformattedName;
     String formattedName;
     String description;
@@ -30,9 +31,9 @@ public class SummonerSpell {
     String costType;
     String resource;
     @OneToMany(cascade = CascadeType.ALL)
-    List<SummonerSpellEffect> effects;
+    List<SpellEffect> effects;
     @OneToMany(cascade = CascadeType.ALL)
-    List<SpellVars> spellVars;
+    List<SpellVars> toolTipVariables;
     @OneToOne(cascade = CascadeType.ALL)
-    GameSprite sprite;
+    GameImage image;
 }

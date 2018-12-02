@@ -6,7 +6,6 @@ import java.util.List;
 
 @Data
 public class LevelTipsDTO {
-
     private List<String> label;
     private List<String> effect;
 }

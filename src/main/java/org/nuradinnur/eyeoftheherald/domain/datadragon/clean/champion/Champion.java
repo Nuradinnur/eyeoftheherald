@@ -1,7 +1,7 @@
 package org.nuradinnur.eyeoftheherald.domain.datadragon.clean.champion;
 
 import lombok.Data;
-import org.nuradinnur.eyeoftheherald.domain.datadragon.clean.GameSprite;
+import org.nuradinnur.eyeoftheherald.domain.datadragon.clean.GameImage;
 
 import javax.persistence.*;
 import java.util.List;
@@ -24,7 +24,7 @@ public class Champion {
     @ElementCollection
     List<String> roles;
     @OneToOne(cascade = CascadeType.ALL)
-    GameSprite sprite;
+    GameImage image;
     @OneToOne(cascade = CascadeType.ALL)
     ChampionRating rating;
     @OneToOne(cascade = CascadeType.ALL)
