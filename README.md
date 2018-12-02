@@ -11,7 +11,7 @@ The League of Legends API has many, many strangely labelled properties in the DT
 
 Eye of the Herald (EotH) will provide a one-stop-shop API wrapper and/or endpoints, written in Java and Spring.  From rate limiting to producing clean and ready to use objects, it aims to be a very extendable and very secure foundation for your stack.
 
-It also comes with persistence, a crawling algorithm (with customization coming in the future) and Data Dragon support.
+It also comes with persistence, a crawling algorithm (with customization coming in the future) and Data Dragon support.  Future goals include machine learning using DL4J (a very powerful open sourced deep learning library), data analyses methods and more.
 
 Currently, there is a lot of work to be done, and many things are broken, but expect frequent updates.  At the rate the project has been progressing, there should be significant work done by February or so.  By then, the application should be production ready and secure.
 
@@ -25,14 +25,18 @@ Currently, there is a lot of work to be done, and many things are broken, but ex
     * DTOs retrieved from the Riot Games API
     * Rate limiting (Using a modified version of the [Token Bucket algorithm](https://en.wikipedia.org/wiki/Token_bucket))
 * Basic crawling algorithm 
+* Persistence
+    * DTO-to-persistent-entity converters (mappers)
     
 #### Upcoming features:
 * Persistence
     * Immutability in entity objects (Objects represent game state and should *not* change)
-    * DTO-to-persistent-entity converters (mappers)
     * Caching of frequently pulled data
     * Spring repositories
-    * Spring queries to provide insightful statistics, i.e.: *Morgana, in winning matches, averages a KDA of 5.7 / 2.9 / 12.6*
+    * Pagination and sorting of responses
+* Statistics
+    * Spring queries to provide basic, but very insightful statistics, i.e.: *Morgana, in winning matches, averages a KDA of 5.7 / 2.9 / 12.6*
+    * Machine learning algorithms allowing answers to very open questions, i.e.: *For a certain strategy and build, what will my win rate be?*
 * Customizability
     * Crawler algorithm strategies, speeds, persistence/transience, et cetera
     * Caching strategies used
