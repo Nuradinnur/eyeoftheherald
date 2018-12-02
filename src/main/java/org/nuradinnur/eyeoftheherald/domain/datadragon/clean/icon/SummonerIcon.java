@@ -1,7 +1,7 @@
 package org.nuradinnur.eyeoftheherald.domain.datadragon.clean.icon;
 
 import lombok.Data;
-import org.nuradinnur.eyeoftheherald.domain.datadragon.clean.GameSprite;
+import org.nuradinnur.eyeoftheherald.domain.datadragon.clean.GameImage;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -12,7 +12,7 @@ import javax.persistence.OneToOne;
 @Entity
 public class SummonerIcon {
     @Id
-    private Integer id;
+    Integer id;
     @OneToOne(cascade = CascadeType.ALL)
-    private GameSprite image;
+    GameImage image;
 }

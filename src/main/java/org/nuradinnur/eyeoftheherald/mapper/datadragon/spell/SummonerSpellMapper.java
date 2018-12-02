@@ -2,10 +2,10 @@ package org.nuradinnur.eyeoftheherald.mapper.datadragon.spell;
 
 import lombok.val;
 import org.nuradinnur.eyeoftheherald.domain.datadragon.clean.spell.SummonerSpell;
-import org.nuradinnur.eyeoftheherald.domain.datadragon.clean.spell.SummonerSpellEffect;
 import org.nuradinnur.eyeoftheherald.domain.datadragon.dto.spell.SummonerSpellDTO;
-import org.nuradinnur.eyeoftheherald.mapper.datadragon.GameSpriteMapper;
-import org.nuradinnur.eyeoftheherald.mapper.datadragon.SpellVarsMapper;
+import org.nuradinnur.eyeoftheherald.mapper.datadragon.GameImageMapper;
+import org.nuradinnur.eyeoftheherald.mapper.datadragon.SpellEffectsMapper;
+import org.nuradinnur.eyeoftheherald.mapper.datadragon.SpellVariablesMapper;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -14,12 +14,14 @@ import java.util.stream.Collectors;
 @Component
 public class SummonerSpellMapper {
 
-    private final SpellVarsMapper spellVarsMapper;
-    private final GameSpriteMapper gameSpriteMapper;
+    private final GameImageMapper gameImageMapper;
+    private final SpellEffectsMapper spellEffectsMapper;
+    private final SpellVariablesMapper spellVariablesMapper;
 
-    public SummonerSpellMapper(SpellVarsMapper spellVarsMapper, GameSpriteMapper gameSpriteMapper) {
-        this.spellVarsMapper = spellVarsMapper;
-        this.gameSpriteMapper = gameSpriteMapper;
+    public SummonerSpellMapper(SpellVariablesMapper spellVariablesMapper, GameImageMapper gameImageMapper, SpellEffectsMapper spellEffectsMapper) {
+        this.spellVariablesMapper = spellVariablesMapper;
+        this.gameImageMapper = gameImageMapper;
+        this.spellEffectsMapper = spellEffectsMapper;
     }
 
     public List<SummonerSpell> mapAll(List<SummonerSpellDTO> dtos) {
@@ -28,7 +30,7 @@ public class SummonerSpellMapper {
 
     public SummonerSpell map(SummonerSpellDTO dto) {
         val result = new SummonerSpell();
-        result.setSpellId(dto.getKey());
+        result.setId(dto.getKey());
         result.setUnformattedName(dto.getId());
         result.setFormattedName(dto.getName());
         result.setDescription(dto.getDescription());
@@ -42,17 +44,11 @@ public class SummonerSpellMapper {
         result.setCostByRank(dto.getCost());
         result.setCostType(dto.getCostType());
         result.setResource(dto.getResource());
-        val effects = dto.getEffect().stream().map(this::map).collect(Collectors.toList());
+        val effects = dto.getEffect().stream().map(spellEffectsMapper::map).collect(Collectors.toList());
         result.setEffects(effects);
-        val spellVars = dto.getVars().stream().map(spellVarsMapper::map).collect(Collectors.toList());
-        result.setSpellVars(spellVars);
-        result.setSprite(gameSpriteMapper.map(dto.getImage()));
-        return result;
-    }
-
-    private SummonerSpellEffect map(List<Double> effect) {
-        val result = new SummonerSpellEffect();
-        result.setEffects(effect);
+        val spellVars = dto.getVars().stream().map(spellVariablesMapper::map).collect(Collectors.toList());
+        result.setToolTipVariables(spellVars);
+        result.setImage(gameImageMapper.map(dto.getImage()));
         return result;
     }
 }

@@ -1,19 +1,19 @@
 package org.nuradinnur.eyeoftheherald.mapper.datadragon;
 
 import lombok.val;
-import org.nuradinnur.eyeoftheherald.domain.datadragon.clean.GameSprite;
+import org.nuradinnur.eyeoftheherald.domain.datadragon.clean.GameImage;
 import org.nuradinnur.eyeoftheherald.domain.datadragon.dto.GameSpriteDTO;
 import org.springframework.stereotype.Component;
 
 @Component
-public class GameSpriteMapper {
+public class GameImageMapper {
 
-    public GameSprite map(GameSpriteDTO dto) {
+    public GameImage map(GameSpriteDTO dto) {
         if (dto == null) {
             return null;
         }
-        val result = new GameSprite();
-        result.setSuggestedFileName(dto.getFull());
+        val result = new GameImage();
+        result.setFileName(dto.getFull());
         result.setSpriteSheetFileName(dto.getSprite());
         result.setSpriteGroup(dto.getGroup());
         result.setOffsetX(dto.getX());

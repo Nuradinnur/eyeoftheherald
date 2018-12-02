@@ -15,4 +15,5 @@ public class ChampionSkin {
     String name;
     Integer skinIndex;
     Boolean hasChromas;
+    String imageFileName;
 }

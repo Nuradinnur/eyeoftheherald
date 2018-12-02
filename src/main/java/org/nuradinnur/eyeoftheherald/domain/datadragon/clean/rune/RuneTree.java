@@ -14,7 +14,7 @@ public class RuneTree {
     @Id
     Integer id;
     String name;
-    String spriteFileName;
+    String imageFileName;
     @OneToMany(cascade = CascadeType.ALL)
     List<Rune> keystones;
     @OneToMany(cascade = CascadeType.ALL)

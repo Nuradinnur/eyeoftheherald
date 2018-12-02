@@ -4,7 +4,7 @@ import lombok.val;
 import org.nuradinnur.eyeoftheherald.constant.ItemStats;
 import org.nuradinnur.eyeoftheherald.domain.datadragon.clean.item.Item;
 import org.nuradinnur.eyeoftheherald.domain.datadragon.dto.item.ItemDTO;
-import org.nuradinnur.eyeoftheherald.mapper.datadragon.GameSpriteMapper;
+import org.nuradinnur.eyeoftheherald.mapper.datadragon.GameImageMapper;
 import org.springframework.stereotype.Component;
 
 import java.util.*;
@@ -13,10 +13,10 @@ import java.util.stream.Collectors;
 @Component
 public class ItemMapper {
 
-    private final GameSpriteMapper gameSpriteMapper;
+    private final GameImageMapper gameImageMapper;
 
-    public ItemMapper(GameSpriteMapper gameSpriteMapper) {
-        this.gameSpriteMapper = gameSpriteMapper;
+    public ItemMapper(GameImageMapper gameImageMapper) {
+        this.gameImageMapper = gameImageMapper;
     }
 
     public List<Item> mapAll(List<ItemDTO> dtos) {
@@ -37,7 +37,7 @@ public class ItemMapper {
         result.setName(dto.getName());
         result.setColloquialisms(Arrays.asList(dto.getColloq().split(";")));
         result.setDescription(dto.getDescription());
-        result.setPlaintext(dto.getPlaintext());
+        result.setSummary(dto.getPlaintext());
         result.setSpecialRecipeItem(dto.getSpecialRecipe());
         result.setRequiredChampion(dto.getRequiredChampion());
         result.setRequiredAlly(dto.getRequiredAlly());
@@ -48,8 +48,8 @@ public class ItemMapper {
         result.setConsumableAtFull(dto.getConsumeOnFull());
         result.setAvailableInStore(dto.getInStore());
         result.setGenerallyUnavailable(dto.getHideFromAll());
-        result.setSprite(gameSpriteMapper.map(dto.getImage()));
-        result.setBuyPrice(dto.getGold().getBase());
+        result.setImage(gameImageMapper.map(dto.getImage()));
+        result.setUpgradePrice(dto.getGold().getBase());
         result.setPurchasable(dto.getGold().getPurchasable());
         result.setTotalPrice(dto.getGold().getTotal());
         result.setSellPrice(dto.getGold().getSell());

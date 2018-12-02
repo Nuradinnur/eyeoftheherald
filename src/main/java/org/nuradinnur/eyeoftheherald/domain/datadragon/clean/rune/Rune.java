@@ -14,7 +14,7 @@ public class Rune {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
     String name;
-    String spriteFileName;
+    String imageFileName;
     String summary;
     String description;
 }

@@ -187,7 +187,7 @@ public class DataDragonService {
         }
         val summonerSpells = summonerSpellMapper.mapAll(dtos);
         for (val summonerSpell : summonerSpells) {
-            result.put(summonerSpell.getSpellId(), summonerSpell);
+            result.put(summonerSpell.getId(), summonerSpell);
         }
         return result;
     }

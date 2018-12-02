@@ -2,7 +2,7 @@ package org.nuradinnur.eyeoftheherald.domain.datadragon.clean.item;
 
 import lombok.Data;
 import org.nuradinnur.eyeoftheherald.constant.ItemStats;
-import org.nuradinnur.eyeoftheherald.domain.datadragon.clean.GameSprite;
+import org.nuradinnur.eyeoftheherald.domain.datadragon.clean.GameImage;
 
 import javax.persistence.*;
 import java.util.List;
@@ -17,10 +17,11 @@ public class Item {
     @ElementCollection
     List<String> colloquialisms;
     String description;
-    String plaintext;
+    String summary;
     Integer specialRecipeItem;
     String requiredChampion;
     String requiredAlly;
+    Integer buildDepth;
     @ElementCollection
     List<Integer> upgrades;
     @ElementCollection
@@ -31,9 +32,9 @@ public class Item {
     Boolean availableInStore;
     Boolean generallyUnavailable;
     @OneToOne(cascade = CascadeType.ALL)
-    GameSprite sprite;
-    Integer buyPrice;
+    GameImage image;
     Boolean purchasable;
+    Integer upgradePrice;
     Integer totalPrice;
     Integer sellPrice;
     @ElementCollection
@@ -44,5 +45,4 @@ public class Item {
     Map<ItemStats, Double> stats;
     @ElementCollection
     List<Double> effects;
-    Integer buildDepth;
 }

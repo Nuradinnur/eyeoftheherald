@@ -1,8 +1,8 @@
 package org.nuradinnur.eyeoftheherald.domain.datadragon.clean.champion;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
-import org.nuradinnur.eyeoftheherald.domain.datadragon.clean.GameSprite;
+import org.nuradinnur.eyeoftheherald.domain.datadragon.clean.GameImage;
+import org.nuradinnur.eyeoftheherald.domain.datadragon.clean.SpellEffect;
 import org.nuradinnur.eyeoftheherald.domain.datadragon.clean.SpellVars;
 
 import javax.persistence.*;
@@ -12,29 +12,27 @@ import java.util.List;
 @Entity
 public class ChampionSpell {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @JsonIgnore
-    Long id;
-    String unformattedName;
+    @Column(length = 100)
     String formattedName;
+    String unformattedName;
     String description;
     String toolTip;
     String costType;
     String resource;
     @OneToOne(cascade = CascadeType.ALL)
-    LevelTips levelTips;
+    SpellRankUpgrades rankUpgrades;
     @ElementCollection
-    List<Double> spellRanges;
+    List<Double> spellRangeByRank;
     @ElementCollection
-    List<Double> cooldowns;
+    List<Double> cooldownByRank;
     @ElementCollection
-    List<Integer> costs;
+    List<Integer> costByRank;
     Integer maxRank;
     Integer maxCharges;
     @OneToMany(cascade = CascadeType.ALL)
-    List<ChampionSpellEffect> effects;
+    List<SpellEffect> spellEffects;
     @OneToMany(cascade = CascadeType.ALL)
-    List<SpellVars> spellVars;
+    List<SpellVars> spellVariables;
     @OneToOne(cascade = CascadeType.ALL)
-    GameSprite sprite;
+    GameImage image;
 }

@@ -4,6 +4,8 @@ A battle-tested, fully-functional, open sourced backend for developers wishing t
 
 Consider it an abstraction layer (with lots of extra features) for the API.
 
+---
+
 #### Why should I use this as my backend?
 The League of Legends API has many, many strangely labelled properties in the DTOs, can have very complex object structures and is generally an annoyance to use. Because of the strict rate limiting they enforce (and the impossibility of syncing clocks with Riot's servers), it is needlessly difficult to simply pull data from the API for hobbyist developers.  
 
@@ -40,7 +42,7 @@ Currently, there is a lot of work to be done, and many things are broken, but ex
     * API key security (A necessary requirement in obtaining a production API key)
 * Want more?
     * Feel free to leave an issue or pull request if you want to contribute your ideas!
-    
+
 ---
 
 #### Backend architecture

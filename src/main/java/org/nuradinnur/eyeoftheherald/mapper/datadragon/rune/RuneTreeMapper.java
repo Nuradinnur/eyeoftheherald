@@ -36,7 +36,7 @@ public class RuneTreeMapper {
         val result = new Rune();
         result.setId(dto.getId());
         result.setName(dto.getName());
-        result.setSpriteFileName(dto.getKey() + ".png");
+        result.setImageFileName(dto.getKey() + ".png");
         result.setSummary(dto.getShortDesc());
         result.setDescription(dto.getLongDesc());
         return result;

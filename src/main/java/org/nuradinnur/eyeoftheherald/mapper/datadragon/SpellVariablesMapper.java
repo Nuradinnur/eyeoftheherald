@@ -6,7 +6,7 @@ import org.nuradinnur.eyeoftheherald.domain.datadragon.dto.SpellVarsDTO;
 import org.springframework.stereotype.Component;
 
 @Component
-public class SpellVarsMapper {
+public class SpellVariablesMapper {
 
     public SpellVars map(SpellVarsDTO dto) {
         val result = new SpellVars();
