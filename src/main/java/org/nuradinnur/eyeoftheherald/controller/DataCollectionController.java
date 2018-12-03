@@ -1,10 +1,10 @@
 package org.nuradinnur.eyeoftheherald.controller;
 
-import org.nuradinnur.eyeoftheherald.constant.Queues;
+import org.nuradinnur.eyeoftheherald.constant.RankedQueues;
 import org.nuradinnur.eyeoftheherald.constant.Regions;
 import org.nuradinnur.eyeoftheherald.domain.collected.dto.championmastery.ChampionMasteryDTO;
 import org.nuradinnur.eyeoftheherald.domain.collected.dto.championrotation.ChampionRotationDTO;
-import org.nuradinnur.eyeoftheherald.domain.collected.dto.currentgame.CurrentGameDTO;
+import org.nuradinnur.eyeoftheherald.domain.collected.dto.currentgame.CurrentGameInfoDTO;
 import org.nuradinnur.eyeoftheherald.domain.collected.dto.currentgame.FeaturedGamesDTO;
 import org.nuradinnur.eyeoftheherald.domain.collected.dto.leaguelist.LeagueItemDTO;
 import org.nuradinnur.eyeoftheherald.domain.collected.dto.leaguelist.LeagueListDTO;
@@ -56,7 +56,7 @@ public class DataCollectionController {
 
     @GetMapping("/league/challenger/{queue}")
     public LeagueListDTO getChallengerLeague(@PathVariable("region") Regions region,
-                                             @PathVariable("queue") Queues queue) {
+                                             @PathVariable("queue") RankedQueues queue) {
         return dataCollectionService.getChallengerLeague(region, queue);
     }
 
@@ -68,7 +68,7 @@ public class DataCollectionController {
 
     @GetMapping("/league/master/{queue}")
     public LeagueListDTO getMasterLeague(@PathVariable("region") Regions region,
-                                         @PathVariable("queue") Queues queue) {
+                                         @PathVariable("queue") RankedQueues queue) {
         return dataCollectionService.getMasterLeague(region, queue);
     }
 
@@ -102,8 +102,8 @@ public class DataCollectionController {
     }
 
     @GetMapping("/summoner/{summonerId}/spectate")
-    public CurrentGameDTO getCurrentGame(@PathVariable("region") Regions region,
-                                         @PathVariable("summonerId") String summonerId) {
+    public CurrentGameInfoDTO getCurrentGame(@PathVariable("region") Regions region,
+                                             @PathVariable("summonerId") String summonerId) {
         return dataCollectionService.getCurrentGame(region, summonerId);
     }
 

@@ -14,7 +14,6 @@ public class ChampionRecommendationDTO {
     private String customTag;
     private Integer sortrank;
     private Boolean extensionPage;
-    // TODO: ??
     private Object customPanel;
     private List<ChampionRecommendationBlockDTO> blocks;
 }

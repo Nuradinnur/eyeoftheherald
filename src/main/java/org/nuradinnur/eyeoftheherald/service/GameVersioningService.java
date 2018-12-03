@@ -43,7 +43,7 @@ public class GameVersioningService {
 
     @Getter
     private String currentGameVersion;
-    private String deversionedGamePatch;
+    private String currentGamePatch;
 
     public GameVersioningService(RestTemplate rest, DataAccessConfiguration dataAccessConfiguration) {
         this.logger = LoggerFactory.getLogger(this.getClass());
@@ -57,7 +57,7 @@ public class GameVersioningService {
     }
 
     public boolean isCurrentPatch(String gameVersion) {
-        if (gameVersion.startsWith(deversionedGamePatch)) {
+        if (gameVersion.startsWith(currentGamePatch)) {
             return true;
         }
         return false;
@@ -86,7 +86,7 @@ public class GameVersioningService {
             this.currentGameVersion = latestGameVersion;
             val deversioningMatcher = deversioningPattern.matcher(this.currentGameVersion);
             deversioningMatcher.find();
-            this.deversionedGamePatch = deversioningMatcher.group();
+            this.currentGamePatch = deversioningMatcher.group();
             val tarballPath = getGameDefinitionsAsTarball(latestGameVersion);
             if (tarballPath != null) {
                 // TODO: Throw exception if null

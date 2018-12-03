@@ -15,9 +15,9 @@ public class SpellRankUpgrades {
     @Id
     @Column(length = 100)
     @JsonIgnore
-    String forSpell;
+    private String forSpell;
     @ElementCollection
-    List<String> label;
+    private List<String> label;
     @ElementCollection
-    List<String> effect;
+    private List<String> effect;
 }

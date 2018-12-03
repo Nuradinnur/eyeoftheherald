@@ -6,5 +6,5 @@ import java.util.List;
 
 @Data
 public class RunePathTierDTO {
-    List<RuneDTO> runes;
+    private List<RuneDTO> runes;
 }

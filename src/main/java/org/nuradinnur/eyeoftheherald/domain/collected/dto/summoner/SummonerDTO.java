@@ -4,10 +4,11 @@ import lombok.Data;
 
 @Data
 public class SummonerDTO {
-    private Long id;
     private Integer profileIconId;
     private String name;
+    private String puuid;
     private Long summonerLevel;
     private Long revisionDate;
+    private Long id;
     private Long accountId;
 }

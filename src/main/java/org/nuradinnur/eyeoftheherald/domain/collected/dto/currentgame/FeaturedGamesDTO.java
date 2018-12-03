@@ -7,5 +7,5 @@ import java.util.List;
 @Data
 public class FeaturedGamesDTO {
     private Long clientRefreshInterval;
-    private List<CurrentGameDTO> gameList;
+    private List<CurrentGameInfoDTO> gameList;
 }

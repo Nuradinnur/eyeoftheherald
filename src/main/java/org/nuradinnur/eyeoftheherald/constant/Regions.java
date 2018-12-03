@@ -11,6 +11,7 @@ public enum Regions {
     LAN("la1"),
     LAS("la2"),
     NA("na1"),
+    NA_OLD("na"),
     OCE("oc1"),
     TR("tr1"),
     RU("ru"),

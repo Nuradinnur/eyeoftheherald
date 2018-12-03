@@ -10,32 +10,32 @@ import java.util.List;
 @Entity
 public class Champion {
     @Id
-    Integer id;
-    String unformattedName;
-    String formattedName;
-    String title;
-    String blurb;
-    String lore;
-    String resource;
+    private Integer id;
+    private String unformattedName;
+    private String formattedName;
+    private String title;
+    private String blurb;
+    private String lore;
+    private String resource;
     @ElementCollection
-    List<String> tipsForAllies;
+    private List<String> tipsForAllies;
     @ElementCollection
-    List<String> tipsForEnemies;
+    private List<String> tipsForEnemies;
     @ElementCollection
-    List<String> roles;
+    private List<String> roles;
     @OneToOne(cascade = CascadeType.ALL)
-    GameImage image;
+    private GameImage image;
     @OneToOne(cascade = CascadeType.ALL)
-    ChampionRating rating;
+    private ChampionRating rating;
     @OneToOne(cascade = CascadeType.ALL)
-    ChampionStats stats;
+    private ChampionStats stats;
     @OneToOne(cascade = CascadeType.ALL)
-    ChampionPassive passive;
+    private ChampionPassive passive;
     @OneToMany(cascade = CascadeType.ALL)
-    List<ChampionSpell> spells;
+    private List<ChampionSpell> spells;
     @OneToMany(cascade = CascadeType.ALL)
-    List<ChampionSkin> skins;
+    private List<ChampionSkin> skins;
     @OneToMany(cascade = CascadeType.ALL)
-    List<ChampionRecommendation> recommendations;
+    private List<ChampionRecommendation> recommendations;
 }
 

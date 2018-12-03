@@ -6,7 +6,6 @@ import java.util.List;
 
 @Data
 class TeamStatsDTO {
-    private Long id;
     private Boolean firstDragon;
     private Boolean firstInhibitor;
     private List<TeamBansDTO> bans;

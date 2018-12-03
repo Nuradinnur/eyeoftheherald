@@ -8,27 +8,26 @@ import java.util.List;
 
 @Data
 public class SummonerSpellDTO {
-    Integer key;
-    String id;
-    String name;
-    String description;
-    String tooltip;
-    Integer maxrank;
-    List<Integer> cooldown;
-    String cooldownBurn;
-    List<Integer> cost;
-    String costBurn;
-    // TODO: ??
-    Object datavalues;
-    List<List<Double>> effect;
-    List<String> effectBurn;
-    List<SpellVarsDTO> vars;
-    Integer summonerLevel;
-    List<String> modes;
-    String costType;
-    Integer maxammo;
-    List<Integer> range;
-    String rangeBurn;
-    GameSpriteDTO image;
-    String resource;
+    private Integer key;
+    private String id;
+    private String name;
+    private String description;
+    private String tooltip;
+    private Integer maxrank;
+    private List<Integer> cooldown;
+    private String cooldownBurn;
+    private List<Integer> cost;
+    private String costBurn;
+    private Object datavalues;
+    private List<List<Double>> effect;
+    private List<String> effectBurn;
+    private List<SpellVarsDTO> vars;
+    private Integer summonerLevel;
+    private List<String> modes;
+    private String costType;
+    private Integer maxammo;
+    private List<Integer> range;
+    private String rangeBurn;
+    private GameSpriteDTO image;
+    private String resource;
 }

@@ -1,7 +1,7 @@
 package org.nuradinnur.eyeoftheherald.service.collection;
 
 import lombok.val;
-import org.nuradinnur.eyeoftheherald.constant.Queues;
+import org.nuradinnur.eyeoftheherald.constant.RankedQueues;
 import org.nuradinnur.eyeoftheherald.constant.Regions;
 import org.nuradinnur.eyeoftheherald.domain.collected.dto.leaguelist.LeagueItemDTO;
 import org.nuradinnur.eyeoftheherald.domain.collected.dto.match.MatchDTO;
@@ -83,8 +83,8 @@ public class DataCrawlingService {
 
     private HashMap<SummonerDTO, MatchListDTO> getChallengerMatchLists(Regions region) {
         val challengers = new HashSet<LeagueItemDTO>();
-        challengers.addAll(dataCollectionService.getChallengerLeague(region, Queues.RANKED_SOLO_5x5).getEntries());
-        challengers.addAll(dataCollectionService.getChallengerLeague(region, Queues.RANKED_FLEX_SR).getEntries());
+        challengers.addAll(dataCollectionService.getChallengerLeague(region, RankedQueues.RANKED_SOLO_5x5).getEntries());
+        challengers.addAll(dataCollectionService.getChallengerLeague(region, RankedQueues.RANKED_FLEX_SR).getEntries());
         val result = new HashMap<SummonerDTO, MatchListDTO>();
         for (val challenger : challengers) {
             val summonerInfo = dataCollectionService.getSummonerByName(region, challenger.getPlayerOrTeamName());

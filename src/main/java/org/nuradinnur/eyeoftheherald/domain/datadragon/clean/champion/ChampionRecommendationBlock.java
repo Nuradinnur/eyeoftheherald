@@ -12,19 +12,19 @@ public class ChampionRecommendationBlock {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonIgnore
-    Long id;
-    String type;
-    Boolean recMath;
-    Boolean recSteps;
-    Integer minSummonerLevel;
-    Integer maxSummonerLevel;
-    String showIfSummonerSpell;
-    String hideIfSummonerSpell;
-    String appendAfterSection;
+    private Long id;
+    private String type;
+    private Boolean recMath;
+    private Boolean recSteps;
+    private Integer minSummonerLevel;
+    private Integer maxSummonerLevel;
+    private String showIfSummonerSpell;
+    private String hideIfSummonerSpell;
+    private String appendAfterSection;
     @ElementCollection
-    List<String> visibleWithAllOf;
+    private List<String> visibleWithAllOf;
     @ElementCollection
-    List<String> hiddenWithAnyOf;
+    private List<String> hiddenWithAnyOf;
     @OneToMany(cascade = CascadeType.ALL)
-    List<ChampionRecommendationBlockItem> items;
+    private List<ChampionRecommendationBlockItem> items;
 }

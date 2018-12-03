@@ -11,25 +11,25 @@ import javax.persistence.Id;
 public class ChampionStats {
     @Id
     @JsonIgnore
-    Integer id;
-    Double baseHealth;
-    Double healthPerLevel;
-    Double baseMana;
-    Double manaPerLevel;
-    Double baseMovementSpeed;
-    Double baseArmor;
-    Double armorPerLevel;
-    Double baseMagicResist;
-    Double magicResistPerLevel;
-    Double baseAttackRange;
-    Double baseHealthRegen;
-    Double healthRegenPerLevel;
-    Double baseManaRegen;
-    Double manaRegenPerLevel;
-    Double baseCriticalStrikeChance;
-    Double criticalStrikeChancePerLevel;
-    Double baseAttackDamage;
-    Double attackDamagePerLevel;
-    Double baseAttackSpeed;
-    Double attackSpeedPerLevel;
+    private Integer id;
+    private Double baseHealth;
+    private Double healthPerLevel;
+    private Double baseMana;
+    private Double manaPerLevel;
+    private Double baseMovementSpeed;
+    private Double baseArmor;
+    private Double armorPerLevel;
+    private Double baseMagicResist;
+    private Double magicResistPerLevel;
+    private Double baseAttackRange;
+    private Double baseHealthRegen;
+    private Double healthRegenPerLevel;
+    private Double baseManaRegen;
+    private Double manaRegenPerLevel;
+    private Double baseCriticalStrikeChance;
+    private Double criticalStrikeChancePerLevel;
+    private Double baseAttackDamage;
+    private Double attackDamagePerLevel;
+    private Double baseAttackSpeed;
+    private Double attackSpeedPerLevel;
 }

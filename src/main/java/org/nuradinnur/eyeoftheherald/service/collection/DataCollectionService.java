@@ -3,11 +3,11 @@ package org.nuradinnur.eyeoftheherald.service.collection;
 import lombok.val;
 import org.nuradinnur.eyeoftheherald.component.DataCollectionInterface;
 import org.nuradinnur.eyeoftheherald.constant.Endpoints;
-import org.nuradinnur.eyeoftheherald.constant.Queues;
+import org.nuradinnur.eyeoftheherald.constant.RankedQueues;
 import org.nuradinnur.eyeoftheherald.constant.Regions;
 import org.nuradinnur.eyeoftheherald.domain.collected.dto.championmastery.ChampionMasteryDTO;
 import org.nuradinnur.eyeoftheherald.domain.collected.dto.championrotation.ChampionRotationDTO;
-import org.nuradinnur.eyeoftheherald.domain.collected.dto.currentgame.CurrentGameDTO;
+import org.nuradinnur.eyeoftheherald.domain.collected.dto.currentgame.CurrentGameInfoDTO;
 import org.nuradinnur.eyeoftheherald.domain.collected.dto.currentgame.FeaturedGamesDTO;
 import org.nuradinnur.eyeoftheherald.domain.collected.dto.leaguelist.LeagueItemDTO;
 import org.nuradinnur.eyeoftheherald.domain.collected.dto.leaguelist.LeagueListDTO;
@@ -66,7 +66,7 @@ public class DataCollectionService {
         });
     }
 
-    public LeagueListDTO getChallengerLeague(Regions region, Queues queue) {
+    public LeagueListDTO getChallengerLeague(Regions region, RankedQueues queue) {
         val pathParameters = new HashMap<String, String>();
         pathParameters.put("region", region.getPlatform());
         pathParameters.put("queue", queue.getName());
@@ -82,7 +82,7 @@ public class DataCollectionService {
         });
     }
 
-    public LeagueListDTO getMasterLeague(Regions region, Queues queue) {
+    public LeagueListDTO getMasterLeague(Regions region, RankedQueues queue) {
         val pathParameters = new HashMap<String, String>();
         pathParameters.put("region", region.getPlatform());
         pathParameters.put("queue", queue.getName());
@@ -162,11 +162,11 @@ public class DataCollectionService {
         });
     }
 
-    public CurrentGameDTO getCurrentGame(Regions region, String summonerId) {
+    public CurrentGameInfoDTO getCurrentGame(Regions region, String summonerId) {
         val pathParameters = new HashMap<String, String>();
         pathParameters.put("region", region.getPlatform());
         pathParameters.put("summonerId", summonerId);
-        return dataCollectionInterface.makeRequest(region, Endpoints.CURRENT_GAME, pathParameters, null, new ParameterizedTypeReference<CurrentGameDTO>() {
+        return dataCollectionInterface.makeRequest(region, Endpoints.CURRENT_GAME, pathParameters, null, new ParameterizedTypeReference<CurrentGameInfoDTO>() {
         });
     }
 

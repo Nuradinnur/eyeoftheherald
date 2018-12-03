@@ -11,9 +11,9 @@ import javax.persistence.Id;
 public class ChampionSkin {
     @Id
     @JsonIgnore
-    Integer id;
-    String name;
-    Integer skinIndex;
-    Boolean hasChromas;
-    String imageFileName;
+    private Integer id;
+    private String name;
+    private Integer skinIndex;
+    private Boolean hasChromas;
+    private String imageFileName;
 }

@@ -11,11 +11,11 @@ import javax.persistence.Id;
 public class GameImage {
     @Id
     @Column(length = 200)
-    String fileName;
-    String spriteSheetFileName;
-    String spriteGroup;
-    Integer offsetX;
-    Integer offsetY;
-    Integer width;
-    Integer height;
+    private String fileName;
+    private String spriteSheetFileName;
+    private String spriteGroup;
+    private Integer offsetX;
+    private Integer offsetY;
+    private Integer width;
+    private Integer height;
 }

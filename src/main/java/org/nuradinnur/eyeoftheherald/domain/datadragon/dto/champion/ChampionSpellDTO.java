@@ -18,7 +18,6 @@ public class ChampionSpellDTO {
     private String cooldownBurn;
     private List<Integer> cost;
     private String costBurn;
-    // TODO: ??
     private Object datavalues;
     private List<List<Double>> effect;
     private List<String> effectBurn;

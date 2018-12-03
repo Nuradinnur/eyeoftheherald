@@ -10,9 +10,9 @@ import java.util.List;
 public class SpellVars {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
-    String toolTipLocation;
-    String scalingVariable;
+    private Long id;
+    private String toolTipLocation;
+    private String scalingVariable;
     @ElementCollection
-    List<Double> scalingCoefficients;
+    private List<Double> scalingCoefficients;
 }

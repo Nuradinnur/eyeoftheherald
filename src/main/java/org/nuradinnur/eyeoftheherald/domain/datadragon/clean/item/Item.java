@@ -12,37 +12,37 @@ import java.util.Map;
 @Entity
 public class Item {
     @Id
-    Integer id;
-    String name;
+    private Integer id;
+    private String name;
     @ElementCollection
-    List<String> colloquialisms;
-    String description;
-    String summary;
-    Integer specialRecipeItem;
-    String requiredChampion;
-    String requiredAlly;
-    Integer buildDepth;
+    private List<String> colloquialisms;
+    private String description;
+    private String summary;
+    private Integer specialRecipeItem;
+    private String requiredChampion;
+    private String requiredAlly;
+    private Integer buildDepth;
     @ElementCollection
-    List<Integer> upgrades;
+    private List<Integer> upgrades;
     @ElementCollection
-    List<Integer> ingredients;
-    Integer maxPurchasable;
-    Boolean consumable;
-    Boolean consumableAtFull;
-    Boolean availableInStore;
-    Boolean generallyUnavailable;
+    private List<Integer> ingredients;
+    private Integer maxPurchasable;
+    private Boolean consumable;
+    private Boolean consumableAtFull;
+    private Boolean availableInStore;
+    private Boolean generallyUnavailable;
     @OneToOne(cascade = CascadeType.ALL)
-    GameImage image;
-    Boolean purchasable;
-    Integer upgradePrice;
-    Integer totalPrice;
-    Integer sellPrice;
+    private GameImage image;
+    private Boolean purchasable;
+    private Integer upgradePrice;
+    private Integer totalPrice;
+    private Integer sellPrice;
     @ElementCollection
-    List<String> tags;
+    private List<String> tags;
     @ElementCollection
-    Map<Integer, Boolean> mapsAvailableOn;
+    private Map<Integer, Boolean> mapsAvailableOn;
     @ElementCollection
-    Map<ItemStats, Double> stats;
+    private Map<ItemStats, Double> stats;
     @ElementCollection
-    List<Double> effects;
+    private List<Double> effects;
 }

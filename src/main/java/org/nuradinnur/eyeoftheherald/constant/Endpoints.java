@@ -3,7 +3,7 @@ package org.nuradinnur.eyeoftheherald.constant;
 import lombok.Getter;
 import org.nuradinnur.eyeoftheherald.domain.collected.dto.championmastery.ChampionMasteryDTO;
 import org.nuradinnur.eyeoftheherald.domain.collected.dto.championrotation.ChampionRotationDTO;
-import org.nuradinnur.eyeoftheherald.domain.collected.dto.currentgame.CurrentGameDTO;
+import org.nuradinnur.eyeoftheherald.domain.collected.dto.currentgame.CurrentGameInfoDTO;
 import org.nuradinnur.eyeoftheherald.domain.collected.dto.currentgame.FeaturedGamesDTO;
 import org.nuradinnur.eyeoftheherald.domain.collected.dto.leaguelist.LeagueItemDTO;
 import org.nuradinnur.eyeoftheherald.domain.collected.dto.leaguelist.LeagueListDTO;
@@ -43,7 +43,7 @@ public enum Endpoints {
     TIMELINE("/lol/match/v3/timelines/by-match/{matchId}", MatchTimelineDTO.class),
 
     // SPECTATOR-V3
-    CURRENT_GAME("/lol/spectator/v3/active-games/by-summoner/{summonerId}", CurrentGameDTO.class),
+    CURRENT_GAME("/lol/spectator/v3/active-games/by-summoner/{summonerId}", CurrentGameInfoDTO.class),
     FEATURED_GAMES("/lol/spectator/v3/featured-games", FeaturedGamesDTO.class),
 
     // SUMMONER-V3

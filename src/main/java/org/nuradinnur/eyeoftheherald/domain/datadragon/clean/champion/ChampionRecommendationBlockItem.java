@@ -9,7 +9,7 @@ import javax.persistence.Id;
 @Entity
 public class ChampionRecommendationBlockItem {
     @Id
-    Integer id;
-    Integer quantity;
-    Boolean hideQuantity;
+    private Integer id;
+    private Integer quantity;
+    private Boolean hideQuantity;
 }

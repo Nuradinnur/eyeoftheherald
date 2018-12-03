@@ -12,28 +12,28 @@ import java.util.List;
 @Entity
 public class SummonerSpell {
     @Id
-    Integer id;
-    String unformattedName;
-    String formattedName;
-    String description;
-    String toolTip;
+    private Integer id;
+    private String unformattedName;
+    private String formattedName;
+    private String description;
+    private String toolTip;
     @ElementCollection
-    List<String> modes;
-    Integer summonerLevel;
-    Integer maxRank;
-    Integer maxCharges;
+    private List<String> modes;
+    private Integer summonerLevel;
+    private Integer maxRank;
+    private Integer maxCharges;
     @ElementCollection
-    List<Integer> spellRangeByRank;
+    private List<Integer> spellRangeByRank;
     @ElementCollection
-    List<Integer> cooldownByRank;
+    private List<Integer> cooldownByRank;
     @ElementCollection
-    List<Integer> costByRank;
-    String costType;
-    String resource;
+    private List<Integer> costByRank;
+    private String costType;
+    private String resource;
     @OneToMany(cascade = CascadeType.ALL)
-    List<SpellEffect> effects;
+    private List<SpellEffect> effects;
     @OneToMany(cascade = CascadeType.ALL)
-    List<SpellVars> toolTipVariables;
+    private List<SpellVars> toolTipVariables;
     @OneToOne(cascade = CascadeType.ALL)
-    GameImage image;
+    private GameImage image;
 }

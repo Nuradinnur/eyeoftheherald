@@ -3,7 +3,7 @@ package org.nuradinnur.eyeoftheherald.domain.collected.dto.leaguelist;
 import lombok.Data;
 
 @Data
-class MiniSeriesDTO {
+public class MiniSeriesDTO {
     private Integer wins;
     private Integer losses;
     private Integer target;

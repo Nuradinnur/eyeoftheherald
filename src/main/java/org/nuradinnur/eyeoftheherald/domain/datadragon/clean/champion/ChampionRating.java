@@ -11,9 +11,9 @@ import javax.persistence.Id;
 public class ChampionRating {
     @Id
     @JsonIgnore
-    Integer id;
-    Integer attack;
-    Integer defense;
-    Integer magic;
-    Integer difficulty;
+    private Integer id;
+    private Integer attack;
+    private Integer defense;
+    private Integer magic;
+    private Integer difficulty;
 }

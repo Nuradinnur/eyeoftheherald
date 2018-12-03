@@ -4,7 +4,6 @@ import lombok.Data;
 
 @Data
 public class ParticipantDTO {
-    private Long id;
     private ParticipantStatsDTO stats;
     private Integer participantId;
     private ParticipantTimelineDTO timeline;

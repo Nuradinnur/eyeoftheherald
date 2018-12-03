@@ -4,7 +4,6 @@ import lombok.Data;
 
 @Data
 class TeamBansDTO {
-    private Long id;
     private Integer pickTurn;
     private Integer championId;
 }

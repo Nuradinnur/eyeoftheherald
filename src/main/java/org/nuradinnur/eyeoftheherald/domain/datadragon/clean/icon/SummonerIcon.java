@@ -12,7 +12,7 @@ import javax.persistence.OneToOne;
 @Entity
 public class SummonerIcon {
     @Id
-    Integer id;
+    private Integer id;
     @OneToOne(cascade = CascadeType.ALL)
-    GameImage image;
+    private GameImage image;
 }

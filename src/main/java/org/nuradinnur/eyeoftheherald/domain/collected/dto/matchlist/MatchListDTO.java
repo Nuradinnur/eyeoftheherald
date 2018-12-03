@@ -6,7 +6,6 @@ import java.util.List;
 
 @Data
 public class MatchListDTO {
-    private Long id;
     private List<MatchReferenceDTO> matches;
     private Integer totalGames;
     private Integer startIndex;

@@ -10,8 +10,8 @@ import javax.persistence.*;
 public class ChampionPassive {
     @Id
     @Column(length = 100)
-    String name;
-    String description;
+    private String name;
+    private String description;
     @OneToOne(cascade = CascadeType.ALL)
-    GameImage image;
+    private GameImage image;
 }

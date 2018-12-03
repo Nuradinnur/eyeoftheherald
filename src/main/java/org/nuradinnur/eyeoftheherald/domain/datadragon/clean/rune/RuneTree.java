@@ -12,15 +12,15 @@ import java.util.List;
 @Entity
 public class RuneTree {
     @Id
-    Integer id;
-    String name;
-    String imageFileName;
+    private Integer id;
+    private String name;
+    private String imageFileName;
     @OneToMany(cascade = CascadeType.ALL)
-    List<Rune> keystones;
+    private List<Rune> keystones;
     @OneToMany(cascade = CascadeType.ALL)
-    List<Rune> tier1;
+    private List<Rune> tier1;
     @OneToMany(cascade = CascadeType.ALL)
-    List<Rune> tier2;
+    private List<Rune> tier2;
     @OneToMany(cascade = CascadeType.ALL)
-    List<Rune> tier3;
+    private List<Rune> tier3;
 }

@@ -11,13 +11,13 @@ import java.util.List;
 public class ChampionRecommendation {
     @Id
     @Column(length = 100)
-    String title;
-    Maps map;
-    String mode;
-    String type;
-    String customTag;
-    Integer sortRank;
-    Boolean extensionPage;
+    private String title;
+    private Maps map;
+    private String mode;
+    private String type;
+    private String customTag;
+    private Integer sortRank;
+    private Boolean extensionPage;
     @OneToMany(cascade = CascadeType.ALL)
-    List<ChampionRecommendationBlock> blocks;
+    private List<ChampionRecommendationBlock> blocks;
 }

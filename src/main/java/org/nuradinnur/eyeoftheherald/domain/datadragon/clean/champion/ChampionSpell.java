@@ -13,26 +13,26 @@ import java.util.List;
 public class ChampionSpell {
     @Id
     @Column(length = 100)
-    String formattedName;
-    String unformattedName;
-    String description;
-    String toolTip;
-    String costType;
-    String resource;
+    private String formattedName;
+    private String unformattedName;
+    private String description;
+    private String toolTip;
+    private String costType;
+    private String resource;
     @OneToOne(cascade = CascadeType.ALL)
-    SpellRankUpgrades rankUpgrades;
+    private SpellRankUpgrades rankUpgrades;
     @ElementCollection
-    List<Double> spellRangeByRank;
+    private List<Double> spellRangeByRank;
     @ElementCollection
-    List<Double> cooldownByRank;
+    private List<Double> cooldownByRank;
     @ElementCollection
-    List<Integer> costByRank;
-    Integer maxRank;
-    Integer maxCharges;
+    private List<Integer> costByRank;
+    private Integer maxRank;
+    private Integer maxCharges;
     @OneToMany(cascade = CascadeType.ALL)
-    List<SpellEffect> spellEffects;
+    private List<SpellEffect> spellEffects;
     @OneToMany(cascade = CascadeType.ALL)
-    List<SpellVars> spellVariables;
+    private List<SpellVars> spellVariables;
     @OneToOne(cascade = CascadeType.ALL)
-    GameImage image;
+    private GameImage image;
 }

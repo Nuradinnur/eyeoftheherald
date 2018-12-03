@@ -5,7 +5,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-public class CurrentGameDTO {
+public class CurrentGameInfoDTO {
     private Long gameId;
     private Long gameStartTime;
     private String platformId;

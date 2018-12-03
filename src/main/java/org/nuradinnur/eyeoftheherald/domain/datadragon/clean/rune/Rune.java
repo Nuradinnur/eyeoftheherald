@@ -12,9 +12,9 @@ import javax.persistence.Id;
 public class Rune {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Integer id;
-    String name;
-    String imageFileName;
-    String summary;
-    String description;
+    private Integer id;
+    private String name;
+    private String imageFileName;
+    private String summary;
+    private String description;
 }

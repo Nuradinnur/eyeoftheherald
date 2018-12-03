@@ -4,7 +4,6 @@ import lombok.Data;
 
 @Data
 public class PlayerDTO {
-    private Long id;
     private Long currentAccountId;
     private String currentPlatformId;
     private String summonerName;

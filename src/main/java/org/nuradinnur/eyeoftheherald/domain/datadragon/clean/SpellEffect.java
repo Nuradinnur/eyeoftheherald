@@ -12,7 +12,7 @@ public class SpellEffect {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonIgnore
-    Long id;
+    private Long id;
     @ElementCollection
-    List<Double> effects;
+    private List<Double> effects;
 }

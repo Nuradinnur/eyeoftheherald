@@ -6,7 +6,6 @@ import java.util.Map;
 
 @Data
 class ParticipantTimelineDTO {
-    private Long id;
     private String lane;
     private Integer participantId;
     private Map<String, Double> csDiffPerMinDeltas;
