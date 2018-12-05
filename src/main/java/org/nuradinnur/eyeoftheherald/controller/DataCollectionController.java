@@ -54,19 +54,19 @@ public class DataCollectionController {
         return dataCollectionService.getChampionRotation(region);
     }
 
-    @GetMapping("/league/challenger/{queue}")
+    @GetMapping("/leagues/challenger/{queue}")
     public LeagueListDTO getChallengerLeague(@PathVariable("region") Regions region,
                                              @PathVariable("queue") RankedQueues queue) {
         return dataCollectionService.getChallengerLeague(region, queue);
     }
 
-    @GetMapping("/league/{leagueId}")
+    @GetMapping("/leagues/{leagueId}")
     public LeagueListDTO getLeague(@PathVariable("region") Regions region,
                                    @PathVariable("leagueId") String leagueId) {
         return dataCollectionService.getLeague(region, leagueId);
     }
 
-    @GetMapping("/league/master/{queue}")
+    @GetMapping("/leagues/master/{queue}")
     public LeagueListDTO getMasterLeague(@PathVariable("region") Regions region,
                                          @PathVariable("queue") RankedQueues queue) {
         return dataCollectionService.getMasterLeague(region, queue);

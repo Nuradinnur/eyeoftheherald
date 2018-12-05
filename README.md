@@ -6,9 +6,91 @@ Consider it an abstraction layer (with lots of extra features) for the API.
 
 ---
 
-#### Why should I use this as my backend?
-The League of Legends API has many, many strangely labelled properties in the DTOs, can have very complex object structures and is generally an annoyance to use. Because of the strict rate limiting they enforce (and the impossibility of syncing clocks with Riot's servers), it is needlessly difficult to simply pull data from the API for hobbyist developers.  
+#### Usage details
 
+##### Requirements:
+* Maven
+* MySQL server
+
+There are three small commands to get up and running!
+
+1 - Clone the source files.  
+
+    git clone https://github.com/Nuradinnur/eyeoftheherald.git
+    cd eyeoftheherald/
+(You can also clone manually if you don't have `git` installed.) 
+
+2 - Edit the property files to properly authenticate against your MySQL database.
+
+Navigate to `src/main/resources/application.properties` and replace `${db.name}` with your database name, `${db.username}` with your MySQL username and `${db.password}` with your password.  
+
+3 - Run the following commands in the root of the project to build and run the JAR file.
+
+    mvn package -e
+    cd target
+    java -jar eye-of-the-herald-0.1.1-SNAPSHOT.jar
+    
+    
+##### Want to contribute or report a bug?
+
+Create an issue or pull request! 💖
+
+---
+
+#### Summary of all endpoints
+
+Below is a table containing all currently available endpoints in the application.  Every endpoint in this application responds with JSON.  A verbose and more technical recount of all endpoints can be found in the wiki.
+
+##### Data Dragon endpoints:
+All endpoints in this category are ordered by the Riot-given game asset ID.  It is suspected that this order is based on game asset release date. 
+
+| URL | Response entity |
+| --- | --- |
+| `/static/{locale}/champions` | A list of all champions |
+| `/static/{locale}/items` | A list of all items |
+| `/static/{locale}/runes` | A list of all rune trees, with runes as children of each tree |
+| `/static/{locale}/summoner-spells` | A list of all summoner spells |
+| `/static/{locale}/summoner-icons` | A list of all summoner profile icons |
+
+##### Riot API wrapping endpoints:
+
+The endpoints in this category require the use of URL variables.  The variable names and variable type are displayed in the below table.
+
+| Variable name | Variable type |
+| --- | --- |
+| `accountId` | Integer |
+| `championId` | Integer |
+| `leagueId` | String |
+| `queue` | Enumeration (possible values: `RANKED_SOLO_5X5`, `RANKED_FLEX_SR`, `RANKED_FLEX_TT`) |
+| `region` | Enumeration (possible values: `br`, `eune`, `euw`, `jp`, `kr`, `lan`, `las`, `na`, `oce`, `tr`, `ru`, `pbe`) |
+| `summonerId` | Integer |
+| `summonerName` | String  |
+
+
+| URL | Response entity |
+| --- | --- |
+| `/api/{region}/summoner/{summonerName}/by-name` | Summoner/account information for a given summoner name |
+| `/api/{region}/summoner/{accountId}/by-account-id` | Summoner/account information for a given account ID |
+| `/api/{region}/summoner/{summonerId}/by-summoner-id` | Summoner/account information for a given summoner ID |
+| `/api/{region}/summoner/{summonerId}/mastery` | A list of all mastery scores for a given summoner |
+| `/api/{region}/summoner/{summonerId}/mastery/{championId}` | A mastery score for a given summoner playing a given champion |
+| `/api/{region}/summoner/{summonerId}/mastery/score` | The total mastery score for a given summoner |
+| `/api/{region}/summoner/{accountId}/matches` | A list of matches for a given summoner |
+| `/api/{region}/summoner/{summonerId}/leagues` | Ranked information for a given summoner |
+| `/api/{region}/summoner/{summonerId}/spectate` | Spectator information for a given summoner who is currently in a game |
+| `/api/{region}/rotation` | A list of champions that are currently free-to-play |
+| `/api/{region}/league/{leagueId}` | Player and ranking information for a given ranked league |
+| `/api/{region}/league/master/{queue}` | A list of players currently ranked Master for a given queue |
+| `/api/{region}/league/challenger/{queue}` | A list of players currently ranked Challenger for a given queue |
+| `/api/{region}/service-status` | League of Legends service status |
+| `/api/{region}/match/{matchId}` | The result and performance statistics for a given match  |
+| `/api/{region}/match/{matchId}/timeline` | Timestamped event data from a given match |
+| `/api/{region}/featured-games` | The list of featured games promoted in the client |
+| `/api/{region}/verification/{summonerId}` | A verification system allowing for the identification of users' summoner names |
+
+---
+
+#### Why should I use this as my backend?
 Eye of the Herald (EotH) will provide a one-stop-shop API wrapper and/or endpoints, written in Java and Spring.  From rate limiting to producing clean and ready to use objects, it aims to be a very extendable and very secure foundation for your stack.
 
 It also comes with persistence, a crawling algorithm (with customization coming in the future) and Data Dragon support.  Future goals include machine learning using DL4J (a very powerful open sourced deep learning library), data analyses methods and more.

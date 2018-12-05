@@ -13,7 +13,7 @@ import java.util.Map;
 
 @RestController
 @ResponseBody
-@RequestMapping(value = "/{locale}/static/data")
+@RequestMapping(value = "/static/{locale}")
 public class DataDragonController {
 
     private final DataDragonService dataDragonService;
