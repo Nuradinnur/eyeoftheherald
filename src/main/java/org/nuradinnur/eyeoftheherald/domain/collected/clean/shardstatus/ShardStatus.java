@@ -4,10 +4,7 @@ import lombok.Data;
 import org.nuradinnur.eyeoftheherald.constant.Locales;
 import org.nuradinnur.eyeoftheherald.constant.Regions;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.List;
 
 @Data
@@ -18,8 +15,11 @@ public class ShardStatus {
     private Long id;
     private String name;
     private String slug;
+    @Enumerated
     private Regions region;
     private String hostname;
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Service> services;
+    @ElementCollection
     private List<Locales> locales;
 }

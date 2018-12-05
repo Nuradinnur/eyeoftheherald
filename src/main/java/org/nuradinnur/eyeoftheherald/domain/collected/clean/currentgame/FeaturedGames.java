@@ -1,11 +1,9 @@
 package org.nuradinnur.eyeoftheherald.domain.collected.clean.currentgame;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -14,8 +12,10 @@ import java.util.List;
 public class FeaturedGames {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonIgnore
     private Long id;
     private LocalDateTime dateRetrieved;
     private Long refreshInterval;
+    @OneToMany(cascade = CascadeType.ALL)
     private List<CurrentGameInfo> gameList;
 }

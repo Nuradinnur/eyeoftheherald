@@ -6,7 +6,7 @@ import org.nuradinnur.eyeoftheherald.constant.RankedQueues;
 import java.io.Serializable;
 
 @EqualsAndHashCode
-class LeaguePositionId implements Serializable {
+class PromotionalSeriesId implements Serializable {
     private Long summonerId;
     private RankedQueues rankedQueue;
 }

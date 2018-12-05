@@ -1,7 +1,9 @@
 package org.nuradinnur.eyeoftheherald.domain.collected.clean.match;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
@@ -12,8 +14,10 @@ import java.util.List;
 @IdClass(ParticipantStatsId.class)
 class ParticipantStats {
     @Id
+    @JsonIgnore
     private Long gameId;
     @Id
+    @JsonIgnore
     private Integer participantId;
     private Boolean isWin;
     private Integer championLevel;
@@ -22,14 +26,23 @@ class ParticipantStats {
     private Integer assists;
     private Integer primaryRuneTree;
     private Integer secondaryRuneTree;
+    @ElementCollection
     private List<Integer> runeIds;
+    @ElementCollection
     private List<Integer> statRuneIds;
+    @ElementCollection
     private List<Integer> rune1Performance;
+    @ElementCollection
     private List<Integer> rune2Performance;
+    @ElementCollection
     private List<Integer> rune3Performance;
+    @ElementCollection
     private List<Integer> rune4Performance;
+    @ElementCollection
     private List<Integer> rune5Performance;
+    @ElementCollection
     private List<Integer> rune6Performance;
+    @ElementCollection
     private List<Integer> items;
     private Integer goldEarned;
     private Integer goldSpent;
@@ -79,6 +92,7 @@ class ParticipantStats {
     private Integer wardsKilled;
     private Integer stealthWardsBought;
     private Integer controlWardsBought;
+    @ElementCollection
     private List<Integer> playerScores;
     private Integer combatPlayerScore;
     private Integer objectivePlayerScore;

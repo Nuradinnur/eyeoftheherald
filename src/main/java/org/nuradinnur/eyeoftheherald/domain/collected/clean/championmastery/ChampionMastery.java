@@ -2,6 +2,7 @@ package org.nuradinnur.eyeoftheherald.domain.collected.clean.championmastery;
 
 import lombok.Data;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
@@ -12,7 +13,7 @@ import java.time.LocalDateTime;
 @IdClass(ChampionMasteryId.class)
 public class ChampionMastery {
     @Id
-    private String summonerId;
+    private Long summonerId;
     @Id
     private Integer championId;
     private Integer championLevel;

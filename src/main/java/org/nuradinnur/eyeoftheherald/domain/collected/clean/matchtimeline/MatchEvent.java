@@ -1,10 +1,9 @@
 package org.nuradinnur.eyeoftheherald.domain.collected.clean.matchtimeline;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.IdClass;
+import javax.persistence.*;
 import java.util.List;
 
 @Data
@@ -12,29 +11,32 @@ import java.util.List;
 @IdClass(MatchEventId.class)
 class MatchEvent {
     @Id
+    @JsonIgnore
     private Long gameId;
     @Id
     private Integer participantId;
-    private Long timestamp;
     private Boolean isOnBlueSide;
-    private Integer killerId;
+    private Long gameTime;
+    private String type;
+    private String laneType;
     private String eventType;
     private String towerType;
+    private String buildingType;
     private String ascendedType;
-    private String levelUpType;
     private String pointCaptured;
     private String wardType;
     private String monsterType;
-    private String type;
-    private Integer skillSlot;
-    private Integer victimId;
-    private Integer afterId;
     private String monsterSubType;
-    private String laneType;
+    private String levelUpType;
+    private Integer skillSlot;
     private Integer itemId;
-    private String buildingType;
+    private Integer victimId;
+    private Integer killerId;
     private Integer creatorId;
     private Integer beforeId;
-    private List<Integer> assistingParticipantIds;
+    private Integer afterId;
+    @OneToOne(cascade = CascadeType.ALL)
     private MatchPosition position;
+    @ElementCollection
+    private List<Integer> assistingParticipantIds;
 }

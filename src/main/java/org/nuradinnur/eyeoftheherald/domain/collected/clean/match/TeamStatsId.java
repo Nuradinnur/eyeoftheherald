@@ -1,6 +1,11 @@
 package org.nuradinnur.eyeoftheherald.domain.collected.clean.match;
 
-class TeamStatsId {
+import lombok.EqualsAndHashCode;
+
+import java.io.Serializable;
+
+@EqualsAndHashCode
+class TeamStatsId implements Serializable {
     private Long gameId;
-    private Boolean isOnBlueSide;
+    private Boolean isBlueTeam;
 }

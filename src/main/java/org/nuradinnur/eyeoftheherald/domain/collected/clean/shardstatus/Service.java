@@ -2,10 +2,7 @@ package org.nuradinnur.eyeoftheherald.domain.collected.clean.shardstatus;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.List;
 
 @Data
@@ -17,5 +14,6 @@ class Service {
     private String status;
     private String name;
     private String slug;
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Incident> incidents;
 }

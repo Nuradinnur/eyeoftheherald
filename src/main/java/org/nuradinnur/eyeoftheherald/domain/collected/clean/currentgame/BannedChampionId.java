@@ -1,6 +1,11 @@
 package org.nuradinnur.eyeoftheherald.domain.collected.clean.currentgame;
 
-class BannedChampionId {
+import lombok.EqualsAndHashCode;
+
+import java.io.Serializable;
+
+@EqualsAndHashCode
+class BannedChampionId implements Serializable {
     private Long gameId;
     private Integer pickTurn;
 }

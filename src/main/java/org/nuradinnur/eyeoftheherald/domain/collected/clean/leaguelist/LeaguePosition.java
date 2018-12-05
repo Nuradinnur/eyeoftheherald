@@ -4,9 +4,7 @@ import lombok.Data;
 import org.nuradinnur.eyeoftheherald.constant.Divisions;
 import org.nuradinnur.eyeoftheherald.constant.RankedQueues;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.IdClass;
+import javax.persistence.*;
 
 @Data
 @Entity
@@ -14,11 +12,12 @@ import javax.persistence.IdClass;
 public class LeaguePosition {
     @Id
     private Long summonerId;
-    private String summonerName;
     @Id
     private RankedQueues rankedQueue;
+    private String summonerName;
     private String leagueName;
     private String leagueId;
+    @Enumerated
     private Divisions division;
     private Integer wins;
     private Integer losses;
@@ -27,5 +26,6 @@ public class LeaguePosition {
     private Boolean isFreshBlood;
     private Boolean isVeteran;
     private Boolean isDecaying;
+    @OneToOne(cascade = CascadeType.ALL)
     private PromotionalSeries promotionalSeries;
 }

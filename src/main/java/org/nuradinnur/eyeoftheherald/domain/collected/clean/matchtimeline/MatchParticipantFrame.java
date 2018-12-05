@@ -2,10 +2,7 @@ package org.nuradinnur.eyeoftheherald.domain.collected.clean.matchtimeline;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Data
 @Entity
@@ -22,5 +19,6 @@ class MatchParticipantFrame {
     private Integer dominionScore;
     private Integer xp;
     private Integer jungleMinionsKilled;
+    @OneToOne(cascade = CascadeType.ALL)
     private MatchPosition position;
 }

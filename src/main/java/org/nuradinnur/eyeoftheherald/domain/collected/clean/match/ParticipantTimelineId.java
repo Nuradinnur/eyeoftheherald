@@ -1,6 +1,11 @@
 package org.nuradinnur.eyeoftheherald.domain.collected.clean.match;
 
-class ParticipantTimelineId {
+import lombok.EqualsAndHashCode;
+
+import java.io.Serializable;
+
+@EqualsAndHashCode
+class ParticipantTimelineId implements Serializable {
     private Long gameId;
     private Integer participantId;
 }

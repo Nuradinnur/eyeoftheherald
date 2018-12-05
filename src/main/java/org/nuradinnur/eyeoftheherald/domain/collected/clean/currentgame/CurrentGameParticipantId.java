@@ -1,6 +1,11 @@
 package org.nuradinnur.eyeoftheherald.domain.collected.clean.currentgame;
 
-class CurrentGameParticipantId {
+import lombok.EqualsAndHashCode;
+
+import java.io.Serializable;
+
+@EqualsAndHashCode
+class CurrentGameParticipantId implements Serializable {
     private Long gameId;
     private Long summonerId;
 }

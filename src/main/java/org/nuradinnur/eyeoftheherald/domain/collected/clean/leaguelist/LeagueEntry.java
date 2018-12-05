@@ -1,23 +1,23 @@
 package org.nuradinnur.eyeoftheherald.domain.collected.clean.leaguelist;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.nuradinnur.eyeoftheherald.constant.Divisions;
+import org.nuradinnur.eyeoftheherald.constant.Tiers;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Data
 @Entity
+@IdClass(LeagueEntryId.class)
 public class LeagueEntry {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @JsonIgnore
-    private Long id;
     private Long summonerId;
+    @Id
+    private Tiers tier;
+    private LocalDateTime dateRetrieved;
     private String summonerName;
+    @Enumerated
     private Divisions division;
     private Integer wins;
     private Integer losses;
@@ -26,5 +26,6 @@ public class LeagueEntry {
     private Boolean isFreshBlood;
     private Boolean isVeteran;
     private Boolean isDecaying;
+    @OneToOne(cascade = CascadeType.ALL)
     private PromotionalSeries promotionalSeries;
 }

@@ -1,5 +1,6 @@
 package org.nuradinnur.eyeoftheherald.domain.collected.clean.currentgame;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.Entity;
@@ -11,6 +12,7 @@ import javax.persistence.IdClass;
 @IdClass(GameCustomizationId.class)
 class GameCustomization {
     @Id
+    @JsonIgnore
     private Long gameId;
     @Id
     private Long summonerId;
