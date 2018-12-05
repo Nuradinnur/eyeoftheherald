@@ -26,5 +26,5 @@ public class ParticipantIdentity {
     private Long originalAccountId;
     private Long summonerId;
     private String summonerName;
-    private Integer summonerIcon;
+    private Integer summonerIconId;
 }

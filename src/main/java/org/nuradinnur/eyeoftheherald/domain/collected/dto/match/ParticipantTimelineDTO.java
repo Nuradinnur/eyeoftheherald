@@ -5,6 +5,7 @@ import lombok.Data;
 import java.util.Map;
 
 @Data
+public
 class ParticipantTimelineDTO {
     private String lane;
     private Integer participantId;

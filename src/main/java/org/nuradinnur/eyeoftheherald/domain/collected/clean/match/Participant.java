@@ -21,7 +21,7 @@ public class Participant {
     private Tiers highestTierThisSeason;
     private Integer championId;
     @ElementCollection
-    private List<Integer> summonerSpells;
+    private List<Integer> summonerSpellIds;
     @OneToOne(cascade = CascadeType.ALL)
     private ParticipantStats stats;
     @OneToOne(cascade = CascadeType.ALL)

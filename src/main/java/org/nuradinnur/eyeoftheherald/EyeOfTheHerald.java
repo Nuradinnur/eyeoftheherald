@@ -2,7 +2,7 @@ package org.nuradinnur.eyeoftheherald;
 
 import lombok.val;
 import org.nuradinnur.eyeoftheherald.constant.Regions;
-import org.nuradinnur.eyeoftheherald.service.collection.DataCrawlingService;
+import org.nuradinnur.eyeoftheherald.service.DataCrawlingService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

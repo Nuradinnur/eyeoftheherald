@@ -5,6 +5,7 @@ import lombok.EqualsAndHashCode;
 import java.io.Serializable;
 
 @EqualsAndHashCode
+public
 class ChampionMasteryId implements Serializable {
     private Long summonerId;
     private Integer championId;

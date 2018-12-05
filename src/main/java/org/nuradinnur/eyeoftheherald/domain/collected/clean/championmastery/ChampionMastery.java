@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.IdClass;
 import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
 
 @Data
 @Entity
@@ -17,7 +18,7 @@ public class ChampionMastery {
     @Id
     private Integer championId;
     private Integer championLevel;
-    private LocalDateTime lastPlayTime;
+    private ZonedDateTime lastPlayTime;
     private Integer championPoints;
     private Long championPointsSinceLastLevel;
     private Long championPointsUntilNextLevel;

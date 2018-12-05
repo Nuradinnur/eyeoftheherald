@@ -1,6 +1,7 @@
 package org.nuradinnur.eyeoftheherald.constant;
 
-import lombok.Getter;
+import java.util.HashMap;
+import java.util.Map;
 
 public enum Maps {
     UNKNOWN(0, "Unknown"),
@@ -20,11 +21,22 @@ public enum Maps {
     NEXUS_BLITZ(21, "Nexus Blitz"),
     ANY(999, "Any map");
 
-    @Getter private int mapId;
-    @Getter private String formattedName;
+    private static final Map<Integer, Maps> lookup = new HashMap<>();
+    private int id;
+    private String formattedName;
 
-    Maps(int mapId, String formattedName) {
-        this.mapId = mapId;
+    static {
+        for (Maps map : Maps.values()) {
+            lookup.put(map.id, map);
+        }
+    }
+
+    Maps(int id, String formattedName) {
+        this.id = id;
         this.formattedName = formattedName;
+    }
+
+    public static Maps getByValue(int id) {
+        return lookup.get(id);
     }
 }

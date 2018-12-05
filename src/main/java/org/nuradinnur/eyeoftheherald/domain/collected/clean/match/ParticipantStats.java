@@ -12,6 +12,7 @@ import java.util.List;
 @Data
 @Entity
 @IdClass(ParticipantStatsId.class)
+public
 class ParticipantStats {
     @Id
     @JsonIgnore
@@ -44,6 +45,7 @@ class ParticipantStats {
     private List<Integer> rune6Performance;
     @ElementCollection
     private List<Integer> items;
+    private Integer trinket;
     private Integer goldEarned;
     private Integer goldSpent;
     private Integer doubleKills;
@@ -70,7 +72,7 @@ class ParticipantStats {
     private Long physicalDamageTaken;
     private Long magicDamageDealtToChampions;
     private Long magicDamageDealt;
-    private Long magicalDamageTaken;
+    private Long magicDamageTaken;
     private Long trueDamageDealtToChampions;
     private Long trueDamageDealt;
     private Long trueDamageTaken;
@@ -99,10 +101,10 @@ class ParticipantStats {
     private Integer totalPlayerScore;
     private Integer totalScoreRank;
     private Integer teamObjective;
-    private Integer nodeNeutralizeAssist;
-    private Integer nodeNeutralize;
-    private Integer nodeCaptureAssist;
-    private Integer nodeCapture;
+    private Integer nodeNeutralizationAssists;
+    private Integer nodesNeutralized;
+    private Integer nodeCaptureAssists;
+    private Integer nodesCaptured;
     private Integer altarsNeutralized;
     private Integer altarsCaptured;
 }

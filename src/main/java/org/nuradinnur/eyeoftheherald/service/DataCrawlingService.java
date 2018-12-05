@@ -1,4 +1,4 @@
-package org.nuradinnur.eyeoftheherald.service.collection;
+package org.nuradinnur.eyeoftheherald.service;
 
 import lombok.val;
 import org.nuradinnur.eyeoftheherald.constant.RankedQueues;
@@ -8,7 +8,6 @@ import org.nuradinnur.eyeoftheherald.domain.collected.dto.match.MatchDTO;
 import org.nuradinnur.eyeoftheherald.domain.collected.dto.match.ParticipantIdentityDTO;
 import org.nuradinnur.eyeoftheherald.domain.collected.dto.matchlist.MatchListDTO;
 import org.nuradinnur.eyeoftheherald.domain.collected.dto.summoner.SummonerDTO;
-import org.nuradinnur.eyeoftheherald.service.GameVersioningService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Async;

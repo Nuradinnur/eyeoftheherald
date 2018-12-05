@@ -1,4 +1,4 @@
-package org.nuradinnur.eyeoftheherald.service.datadragon;
+package org.nuradinnur.eyeoftheherald.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.val;

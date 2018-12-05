@@ -5,6 +5,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
+public
 class TeamStatsDTO {
     private Boolean firstDragon;
     private Boolean firstInhibitor;
