@@ -1,4 +1,4 @@
-package org.nuradinnur.eyeoftheherald.service.collection;
+package org.nuradinnur.eyeoftheherald.service;
 
 import lombok.val;
 import org.nuradinnur.eyeoftheherald.component.DataCollectionInterface;
@@ -38,8 +38,7 @@ public class DataCollectionService {
         val pathParameters = new HashMap<String, String>();
         pathParameters.put("region", region.getPlatform());
         pathParameters.put("summonerId", summonerId);
-        return dataCollectionInterface.makeRequest(region, Endpoints.ALL_CHAMPION_MASTERIES, pathParameters, null, new ParameterizedTypeReference<List<ChampionMasteryDTO>>() {
-        });
+        return dataCollectionInterface.makeRequest(region, Endpoints.ALL_CHAMPION_MASTERIES, pathParameters, null, new ParameterizedTypeReference<List<ChampionMasteryDTO>>() {});
     }
 
     public ChampionMasteryDTO getChampionMastery(Regions region, String summonerId, String championId) {

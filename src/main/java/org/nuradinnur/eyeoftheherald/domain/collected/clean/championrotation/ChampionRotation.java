@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
 import java.util.List;
 
 @Data
@@ -14,10 +14,10 @@ public class ChampionRotation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonIgnore
     private Long id;
-    private LocalDateTime dateRetrieved;
+    private ZonedDateTime dateRetrieved;
+    private Integer maxNewPlayerLevel;
     @ElementCollection
     private List<Integer> freeChampionIdsForNewPlayers;
     @ElementCollection
     private List<Integer> freeChampionIds;
-    private Integer maxNewPlayerLevel;
 }

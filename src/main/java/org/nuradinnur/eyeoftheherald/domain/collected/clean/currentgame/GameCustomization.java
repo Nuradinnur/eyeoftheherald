@@ -10,6 +10,7 @@ import javax.persistence.IdClass;
 @Data
 @Entity
 @IdClass(GameCustomizationId.class)
+public
 class GameCustomization {
     @Id
     @JsonIgnore

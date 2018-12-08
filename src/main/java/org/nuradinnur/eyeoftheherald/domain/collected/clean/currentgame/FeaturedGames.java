@@ -5,6 +5,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
 import java.util.List;
 
 @Data
@@ -14,8 +15,8 @@ public class FeaturedGames {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonIgnore
     private Long id;
-    private LocalDateTime dateRetrieved;
+    private ZonedDateTime dateRetrieved;
     private Long refreshInterval;
     @OneToMany(cascade = CascadeType.ALL)
-    private List<CurrentGameInfo> gameList;
+    private List<CurrentGame> games;
 }

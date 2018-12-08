@@ -9,6 +9,7 @@ import java.util.List;
 @Data
 @Entity
 @IdClass(TeamStatsId.class)
+public
 class TeamStats {
     @Id
     @JsonIgnore

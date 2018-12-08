@@ -13,7 +13,7 @@ import org.nuradinnur.eyeoftheherald.domain.collected.dto.matchlist.MatchListDTO
 import org.nuradinnur.eyeoftheherald.domain.collected.dto.matchtimeline.MatchTimelineDTO;
 import org.nuradinnur.eyeoftheherald.domain.collected.dto.shardstatus.ShardStatusDTO;
 import org.nuradinnur.eyeoftheherald.domain.collected.dto.summoner.SummonerDTO;
-import org.nuradinnur.eyeoftheherald.service.collection.DataCollectionService;
+import org.nuradinnur.eyeoftheherald.service.DataCollectionService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

@@ -10,6 +10,7 @@ import javax.persistence.IdClass;
 @Data
 @Entity
 @IdClass(TeamBansId.class)
+public
 class TeamBans {
     @Id
     @JsonIgnore

@@ -3,7 +3,7 @@ package org.nuradinnur.eyeoftheherald.domain.collected.dto.match;
 import lombok.Data;
 
 @Data
-class ParticipantStatsDTO {
+public class ParticipantStatsDTO {
     private Boolean firstBloodAssist;
     private Long visionScore;
     private Long magicDamageDealtToChampions;
@@ -63,6 +63,7 @@ class ParticipantStatsDTO {
     private Integer item3;
     private Integer item4;
     private Integer item5;
+    private Integer item6;
     private Integer neutralMinionsKilledTeamJungle;
     private Integer perk0;
     private Integer perk1;

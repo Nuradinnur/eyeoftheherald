@@ -5,6 +5,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
+public
 class CurrentGameParticipantDTO {
     private Long profileIconId;
     private Long championId;

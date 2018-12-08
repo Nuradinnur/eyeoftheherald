@@ -17,5 +17,5 @@ public class BannedChampion {
     @Id
     private Integer pickTurn;
     private Integer championId;
-    private Integer teamId;
+    private Boolean isOnBlueSide;
 }

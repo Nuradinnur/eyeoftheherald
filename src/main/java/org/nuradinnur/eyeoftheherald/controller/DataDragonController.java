@@ -6,7 +6,7 @@ import org.nuradinnur.eyeoftheherald.domain.datadragon.clean.icon.SummonerIcon;
 import org.nuradinnur.eyeoftheherald.domain.datadragon.clean.item.Item;
 import org.nuradinnur.eyeoftheherald.domain.datadragon.clean.rune.RuneTree;
 import org.nuradinnur.eyeoftheherald.domain.datadragon.clean.spell.SummonerSpell;
-import org.nuradinnur.eyeoftheherald.service.datadragon.DataDragonService;
+import org.nuradinnur.eyeoftheherald.service.DataDragonService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;

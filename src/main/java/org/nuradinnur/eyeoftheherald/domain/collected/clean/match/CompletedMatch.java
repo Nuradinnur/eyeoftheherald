@@ -4,7 +4,7 @@ import lombok.Data;
 import org.nuradinnur.eyeoftheherald.constant.*;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
 import java.util.List;
 
 @Data
@@ -25,12 +25,12 @@ public class CompletedMatch {
     private Modes mode;
     @Enumerated
     private Maps map;
-    private LocalDateTime startTime;
+    private ZonedDateTime startTime;
     private Long duration;
     @OneToMany(cascade = CascadeType.ALL)
     private List<ParticipantIdentity> participantIdentities;
     @OneToMany(cascade = CascadeType.ALL)
     private List<Participant> participants;
     @OneToMany(cascade = CascadeType.ALL)
-    private List<TeamStats> teams;
+    private List<TeamStats> teamStats;
 }

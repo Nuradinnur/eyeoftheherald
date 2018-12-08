@@ -6,6 +6,7 @@ import org.nuradinnur.eyeoftheherald.constant.Tiers;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
 import java.util.List;
 
 @Data
@@ -14,12 +15,12 @@ public class League {
     @Id
     @Column(length = 200)
     private String leagueId;
+    private ZonedDateTime dateRetrieved;
     @Enumerated
     private RankedQueues queue;
-    private LocalDateTime dateRetrieved;
     @Enumerated
     private Tiers tier;
     private String name;
     @OneToMany(cascade = CascadeType.ALL)
-    private List<LeagueEntry> players;
+    private List<LeagueEntry> entries;
 }

@@ -12,6 +12,7 @@ import java.util.Map;
 @Data
 @Entity
 @IdClass(ParticipantTimelineId.class)
+public
 class ParticipantTimeline {
     @Id
     @JsonIgnore

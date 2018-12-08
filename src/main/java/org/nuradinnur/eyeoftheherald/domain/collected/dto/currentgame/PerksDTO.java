@@ -5,7 +5,7 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-class PerksDTO {
+public class PerksDTO {
     private Long perkStyle;
     private List<Long> perkIds;
     private Long perkSubStyle;

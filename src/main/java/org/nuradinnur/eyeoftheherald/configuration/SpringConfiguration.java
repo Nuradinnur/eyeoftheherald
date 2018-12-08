@@ -16,6 +16,7 @@ import org.springframework.aop.interceptor.AsyncUncaughtExceptionHandler;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
 import org.springframework.http.converter.json.SpringHandlerInstantiator;
@@ -34,6 +35,7 @@ import java.util.concurrent.Executor;
 @EnableAsync
 @EnableScheduling
 @EnableRetry
+@EnableJpaRepositories
 public class SpringConfiguration implements AsyncConfigurer, WebMvcConfigurer {
 
     @Override
