@@ -32,5 +32,5 @@ public class CompletedMatch {
     @OneToMany(cascade = CascadeType.ALL)
     private List<Participant> participants;
     @OneToMany(cascade = CascadeType.ALL)
-    private List<TeamStats> teams;
+    private List<TeamStats> teamStats;
 }

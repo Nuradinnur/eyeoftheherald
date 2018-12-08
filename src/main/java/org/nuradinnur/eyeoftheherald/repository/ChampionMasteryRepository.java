@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 @RepositoryDefinition(domainClass = ChampionMastery.class, idClass = ChampionMasteryId.class)
 public interface ChampionMasteryRepository extends PagingAndSortingRepository<ChampionMastery, ChampionMasteryId> {
+
     @Query("select sum(mastery.championLevel) from ChampionMastery mastery where mastery.summonerId = :summonerId")
     Integer findMasteryScoreForSummoner(Long summonerId);
 }

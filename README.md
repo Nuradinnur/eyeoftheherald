@@ -69,24 +69,24 @@ The endpoints in this category require the use of URL variables.  The variable n
 
 | URL | Response entity |
 | --- | --- |
-| `/api/{region}/summoner/{summonerName}/by-name` | Summoner/account information for a given summoner name |
-| `/api/{region}/summoner/{accountId}/by-account-id` | Summoner/account information for a given account ID |
-| `/api/{region}/summoner/{summonerId}/by-summoner-id` | Summoner/account information for a given summoner ID |
-| `/api/{region}/summoner/{summonerId}/mastery` | A list of all mastery scores for a given summoner |
-| `/api/{region}/summoner/{summonerId}/mastery/{championId}` | A mastery score for a given summoner playing a given champion |
-| `/api/{region}/summoner/{summonerId}/mastery/score` | The total mastery score for a given summoner |
-| `/api/{region}/summoner/{accountId}/matches` | A list of matches for a given summoner |
-| `/api/{region}/summoner/{summonerId}/leagues` | Ranked information for a given summoner |
-| `/api/{region}/summoner/{summonerId}/spectate` | Spectator information for a given summoner who is currently in a game |
-| `/api/{region}/rotation` | A list of champions that are currently free-to-play |
-| `/api/{region}/league/{leagueId}` | Player and ranking information for a given ranked league |
-| `/api/{region}/league/master/{queue}` | A list of players currently ranked Master for a given queue |
-| `/api/{region}/league/challenger/{queue}` | A list of players currently ranked Challenger for a given queue |
-| `/api/{region}/service-status` | League of Legends service status |
-| `/api/{region}/match/{matchId}` | The result and performance statistics for a given match  |
-| `/api/{region}/match/{matchId}/timeline` | Timestamped event data from a given match |
-| `/api/{region}/featured-games` | The list of featured games promoted in the client |
-| `/api/{region}/verification/{summonerId}` | A verification system allowing for the identification of users' summoner names |
+| `/wrapper/{region}/summoner/{summonerName}/by-name` | Summoner/account information for a given summoner name |
+| `/wrapper/{region}/summoner/{accountId}/by-account-id` | Summoner/account information for a given account ID |
+| `/wrapper/{region}/summoner/{summonerId}/by-summoner-id` | Summoner/account information for a given summoner ID |
+| `/wrapper/{region}/summoner/{summonerId}/mastery` | A list of all mastery scores for a given summoner |
+| `/wrapper/{region}/summoner/{summonerId}/mastery/{championId}` | A mastery score for a given summoner playing a given champion |
+| `/wrapper/{region}/summoner/{summonerId}/mastery/score` | The total mastery score for a given summoner |
+| `/wrapper/{region}/summoner/{accountId}/matches` | A list of matches for a given summoner |
+| `/wrapper/{region}/summoner/{summonerId}/leagues` | Ranked information for a given summoner |
+| `/wrapper/{region}/summoner/{summonerId}/spectate` | Spectator information for a given summoner who is currently in a game |
+| `/wrapper/{region}/rotation` | A list of champions that are currently free-to-play |
+| `/wrapper/{region}/league/{leagueId}` | Player and ranking information for a given ranked league |
+| `/wrapper/{region}/league/master/{queue}` | A list of players currently ranked Master for a given queue |
+| `/wrapper/{region}/league/challenger/{queue}` | A list of players currently ranked Challenger for a given queue |
+| `/wrapper/{region}/service-status` | League of Legends service status |
+| `/wrapper/{region}/match/{matchId}` | The result and performance statistics for a given match  |
+| `/wrapper/{region}/match/{matchId}/timeline` | Timestamped event data from a given match |
+| `/wrapper/{region}/featured-games` | The list of featured games promoted in the client |
+| `/wrapper/{region}/verification/{summonerId}` | A verification system allowing for the identification of users' summoner names |
 
 ---
 

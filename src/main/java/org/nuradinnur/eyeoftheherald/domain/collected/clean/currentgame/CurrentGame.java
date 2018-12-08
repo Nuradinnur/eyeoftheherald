@@ -6,11 +6,12 @@ import org.nuradinnur.eyeoftheherald.constant.*;
 import javax.persistence.*;
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
 import java.util.List;
 
 @Data
 @Entity
-public class CurrentGameInfo {
+public class CurrentGame {
     @Id
     private Long gameId;
     @Enumerated
@@ -23,7 +24,7 @@ public class CurrentGameInfo {
     private Maps map;
     @Enumerated
     private Queues queue;
-    private LocalDateTime gameStartTime;
+    private ZonedDateTime gameStartTime;
     private Long gameLength;
     private String observerEncryptionKey;
     @OneToMany(cascade = CascadeType.ALL)

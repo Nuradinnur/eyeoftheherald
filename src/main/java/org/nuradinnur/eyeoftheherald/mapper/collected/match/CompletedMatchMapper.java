@@ -40,6 +40,7 @@ public class CompletedMatchMapper {
         val teamStats = dto.getTeams().stream()
                 .map(stats -> map(stats, result.getGameId()))
                 .collect(Collectors.toList());
+        result.setTeamStats(teamStats);
         return result;
     }
 
